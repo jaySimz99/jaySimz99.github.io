@@ -1,0 +1,73 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Rock, Paper, Scisscors! </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="HTML5 GameLoop Template">
+    <meta name="author" content="UI Programming">
+
+    <!--StyleSheet-->
+    <link id="switchStyle" rel="stylesheet" type="text/css" href="plushyPink.css">
+    <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="./styleForm.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+
+</head>
+
+<body  onLoad="display()" >
+    <h2 id="round">Round 1</h2><br>
+
+    <div id="scores">
+    <div id="playerScore"><h3 id="playerName">You</h3>
+
+        <div id="playerPoints">
+      </div>
+</div>
+
+
+    <div id="enemyScore"><h3 id="enemyName">Enemy</h3>
+        <div id="enemyPoints">
+              </div></div>
+</div>
+    <canvas tabindex="1" id="the_canvas" width="800" height="400">
+        Oops! looks like your browser does not support canvas tag
+    </canvas>
+
+    <canvas tabindex="1" id="the_canvas_results" width="800" height="400">
+        Oops! looks like your browser does not support canvas tag
+    </canvas>
+
+     <canvas tabindex="1" id="the_canvas_stars" width="800" height="400">
+        Oops! looks like your browser does not support canvas tag
+    </canvas>
+
+    
+ <canvas tabindex="1" id="blank" width="20" height="20">
+        Oops! looks like your browser does not support canvas tag
+    </canvas>
+
+
+
+    <a href='homepage.html'><button id = "back">back</button></a>
+
+    <div class="overlay-content" id="form">
+        <a href='homepage.html'><button id = "home">home</button></a>
+        <button id = "retry">retry</button>
+    </div>
+
+</body>
+
+    <!--JavaScript File-->
+    <script src="./script.js"></script>
+    <script src="./gameplay.js"></script>
+</html>
