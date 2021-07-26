@@ -1,0 +1,8 @@
+{
+    "name": "Rock! Paper! Scissors!",
+    "short_name": "RPS!",
+    "start_url": ".",
+    "background_color": "#ffffff",
+    "theme_color": "#ffffff",
+    "display": "standalone"
+}

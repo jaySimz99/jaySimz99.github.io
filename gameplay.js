@@ -256,11 +256,11 @@ function victorious() {
     }
 
     console.log("roundNum: " + roundNum);
-            //console.log("rounds: " + rounds);
-           // console.log("trackrounds: " + trackRound);
-           // console.log("Player Score: " + playScore);
-            //console.log("Rival Score: " + rivalScore);
-            //console.log("Draw Score: " + drawScore);
+            console.log("rounds: " + rounds);
+           console.log("trackrounds: " + trackRound);
+           console.log("Player Score: " + playScore);
+        console.log("Rival Score: " + rivalScore);
+            console.log("Draw Score: " + drawScore);
 
     document.getElementById("round").innerHTML = "Round " + rounds;
 
