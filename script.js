@@ -30,3 +30,21 @@ function closeNav() {
     document.getElementById("form").style.width = "0%";
 }
 
+var viewport_meta = document.getElementById('viewport-meta');
+
+var viewports = {
+		default: viewport_meta.getAttribute('content'),
+		small: 'width=360'
+	};
+
+var viewport_set = function() {
+		if ( screen.width < 400 )
+			viewport_meta.setAttribute( 'content', viewports.small );
+		else
+			viewport_meta.setAttribute( 'content', viewports.default );
+	}
+viewport_set();
+
+window.onresize = function() { 
+	viewport_set(); 
+}
