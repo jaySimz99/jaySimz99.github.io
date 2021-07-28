@@ -7,7 +7,12 @@
 
     #the_canvas,#the_canvas_results, #the_canvas_stars {
        left: 78%;
-       width: 560px; 
+       width: 400px; 
+    }
+
+    #the_canvas_rival, #the_canvas_stars_rival, #the_canvas_results_rival{
+        top: 130%;
+        width: 300px; 
     }
 
     h2 {
