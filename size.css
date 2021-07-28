@@ -1,22 +1,29 @@
 @media only screen and (max-width: 500px) {
    
+    
     body {
         margin: 0%;
         padding: 0%;
     }
 
     #the_canvas,#the_canvas_results, #the_canvas_stars {
-       left: 78%;
-       width: 400px; 
+       left: 50%;
+       top: 290px;
+       width: 120%; 
     }
 
     #the_canvas_rival, #the_canvas_stars_rival, #the_canvas_results_rival{
-        top: 130%;
-        width: 300px; 
+        left: 70%;
+        top: 80%;
+        width: 190px; 
     }
 
     h2 {
+        font-size: 50px;
+    }
 
-        left: 26%;        
+    #back {
+        position: relative;
+        top: 50%;
     }
 }
