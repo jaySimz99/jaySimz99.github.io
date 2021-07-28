@@ -10,9 +10,28 @@
     display: block; 
     border-radius: 30px;
     top: 60%;
-    left: 50%;
+    left: 40%;
     transform: translate(-50%, -50%);         
 }
+
+#the_canvas_rival, #the_canvas_stars_rival, #the_canvas_results_rival{
+    position: absolute;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block; 
+    border-radius: 30px;
+    top: 60%;
+    left: 68.5%;
+    transform: translate(-50%, -50%);         
+}
+
+#the_canvas_rival{
+    background-image:
+    linear-gradient(to right, #37a0e6, #37a0e6,#376ee6);
+}
+
 
 #the_canvas_results, #the_canvas_stars {
     background-color: transparent;
@@ -24,7 +43,7 @@
     display: block; 
     border-radius: 30px;
     top: 60%;
-    left: 50%;
+    left: 40%;
     transform: translate(-50%, -50%);        
 }
 
@@ -36,6 +55,8 @@ h1 {
     font-family: 'Fredoka One', cursive;
     font-size: 90px;
     text-align: center;
+    left: 50%;
+    transform: translate(-50%, -50%);  
      -webkit-text-fill-color: white;
      -webkit-text-stroke-width: 1.4px;
      -webkit-text-stroke-color:#ff42c6;

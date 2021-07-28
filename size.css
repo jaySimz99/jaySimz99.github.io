@@ -1,0 +1,17 @@
+@media only screen and (max-width: 500px) {
+   
+    body {
+        margin: 0%;
+        padding: 0%;
+    }
+
+    #the_canvas,#the_canvas_results, #the_canvas_stars {
+       left: 78%;
+       width: 560px; 
+    }
+
+    h2 {
+
+        left: 26%;        
+    }
+}

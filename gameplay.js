@@ -5,7 +5,15 @@ var context2 = canvas_results.getContext("2d");
 var canvas_stars = document.getElementById("the_canvas_stars");
 var context3 = canvas_stars.getContext("2d");
 
-const CANVAS_WDT = canvas.width = 800;
+var canvas_rival = document.getElementById("the_canvas_rival");
+var contextR = canvas_rival.getContext("2d");
+var canvas_results_rival = document.getElementById("the_canvas_results_rival");
+var contextR2 = canvas_results_rival.getContext("2d");
+var the_canvas_stars_rival = document.getElementById("the_canvas_stars_rival");
+var contextR3 = the_canvas_stars_rival.getContext("2d");
+
+
+const CANVAS_WDT = canvas.width = 480;
 const CANVAS_HGT = canvas.height = 400;
 const SPRITE_WDT = 700;
 let framex = 0;
@@ -118,16 +126,16 @@ function animate() {
     context.drawImage(rock, framex * SPRITE_WDT, 0, 700, 700, 0, 100, 200, 200);//draws the images 
     context.drawImage(paper, framex * SPRITE_WDT, 0, 700, 700, 140, 100, 200, 200);
     context.drawImage(scissors, framex * SPRITE_WDT, 0, 700, 700, 280, 100, 200, 200);
-    context.drawImage(load, framex * SPRITE_WDT, 0, 700, 700, 600, 100, 200, 200);
+    contextR.drawImage(load, framex * SPRITE_WDT, 0, 700, 700, 55, 100, 200, 200);
 
     //Player points
     context.drawImage(star, 0, 0, 700, 700, 40, 50, 200, 200);
     context.drawImage(star, 0, 0, 700, 700, 90, 50, 200, 200);
     context.drawImage(star, 0, 0, 700, 700, 140, 50, 200, 200);
     //Enemy points
-    context.drawImage(star, 0, 0, 700, 700, 720, 50, 200, 200);
-    context.drawImage(star, 0, 0, 700, 700, 670, 50, 200, 200);
-    context.drawImage(star, 0, 0, 700, 700, 620, 50, 200, 200);
+    contextR.drawImage(star, 0, 0, 700, 700, 75, 50, 200, 200);
+    contextR.drawImage(star, 0, 0, 700, 700, 125, 50, 200, 200);
+    contextR.drawImage(star, 0, 0, 700, 700, 175, 50, 200, 200);
 
 
 
@@ -152,29 +160,29 @@ function animate() {
 
 
     if (rivalScore == 1) {
-        context3.drawImage(starF, 0, 0, 700, 700, 620, 50, 200, 200);
+        contextR3.drawImage(starF, 0, 0, 700, 700, 75, 50, 200, 200);
     }
 
 
     if (rivalScore == 2) {
-        context3.drawImage(starF, 0, 0, 700, 700, 670, 50, 200, 200);
+        contextR3.drawImage(starF, 0, 0, 700, 700, 125, 50, 200, 200);
     }
 
 
     if (rivalScore == 3) {
-        context3.drawImage(starF, 0, 0, 700, 700, 720, 50, 200, 200);
+        contextR3.drawImage(starF, 0, 0, 700, 700, 175, 50, 200, 200);
     }
 }
 
 function whenCardisPicked() {
     if (computer == "rock" && cardIsPicked == true)//shows the card that the computer has picked depending on computer variable 
-    { context2.drawImage(rock2, framex * SPRITE_WDT, 0, 700, 700, 600, 100, 200, 200); }
+    {  contextR.drawImage(rock2, framex * SPRITE_WDT, 0, 700, 700, 55, 100, 200, 200); }
 
     if (computer == "paper" && cardIsPicked == true) 
-    { context2.drawImage(paper2, framex * SPRITE_WDT, 0, 700, 700, 600, 100, 200, 200); }
+    {  contextR.drawImage(paper2, framex * SPRITE_WDT, 0, 700, 700, 55, 100, 200, 200); }
 
     if (computer == "scissors" && cardIsPicked == true) 
-    { context2.drawImage(scissors2, framex * SPRITE_WDT, 0, 700, 700, 600, 100, 200, 200); }
+    {  contextR.drawImage(scissors2, framex * SPRITE_WDT, 0, 700, 700, 55, 100, 200, 200); }
 
     context2.font = "24px Arial";
 
@@ -243,16 +251,11 @@ function victorious() {
 
     var roundNum = 0;
     if (rivalScore < trackRound ||playScore < trackRound||drawScore < trackRound)  {
-        var erase = setInterval(function newRound() {
             context2.clearRect(0, 0, CANVAS_WDT, CANVAS_HGT);
             playerPick = "";
             computerPick = "";
 
        rounds = trackRound;
-    
-            clearInterval(erase);
-        },
-            3000);
     }
 
     console.log("roundNum: " + roundNum);
