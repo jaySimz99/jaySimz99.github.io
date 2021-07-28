@@ -176,13 +176,13 @@ function animate() {
 
 function whenCardisPicked() {
     if (computer == "rock" && cardIsPicked == true)//shows the card that the computer has picked depending on computer variable 
-    {  contextR.drawImage(rock2, framex * SPRITE_WDT, 0, 700, 700, 55, 100, 200, 200); }
+    {  contextR2.drawImage(rock2, framex * SPRITE_WDT, 0, 700, 700, 55, 100, 200, 200); }
 
     if (computer == "paper" && cardIsPicked == true) 
-    {  contextR.drawImage(paper2, framex * SPRITE_WDT, 0, 700, 700, 55, 100, 200, 200); }
+    {  contextR2.drawImage(paper2, framex * SPRITE_WDT, 0, 700, 700, 55, 100, 200, 200); }
 
     if (computer == "scissors" && cardIsPicked == true) 
-    {  contextR.drawImage(scissors2, framex * SPRITE_WDT, 0, 700, 700, 55, 100, 200, 200); }
+    {  contextR2.drawImage(scissors2, framex * SPRITE_WDT, 0, 700, 700, 55, 100, 200, 200); }
 
     context2.font = "24px Arial";
 
@@ -245,6 +245,16 @@ function victorious() {
         context2.fillText(youDraw, 245, 370);
         cardIsPicked = false;
     }
+
+    if (rivalScore == 3){
+        document.getElementById("form").style.width = "100%";
+    }
+
+    if (playScore == 3){
+        document.getElementById("form").style.width = "100%";
+    }
+
+
 }
 
 
