@@ -224,7 +224,7 @@ function victorious() {
         trackRound+= 1;
         victory = "";
          context2.font = "40px Arial";
-        context2.fillText(youWin, 400, 370);
+        context2.fillText(youWin, 245, 370);
         cardIsPicked = false;
     }
 
@@ -233,7 +233,7 @@ function victorious() {
         trackRound+= 1;
         victory = "";
         context2.font = "40px Arial";
-        context2.fillText(youLose, 400, 370);
+        context2.fillText(youLose, 245, 370);
         cardIsPicked = false;
     }
 
@@ -242,7 +242,7 @@ function victorious() {
         trackRound+= 1;
         victory = "";
         context2.font = "40px Arial";
-        context2.fillText(youDraw, 400, 370);
+        context2.fillText(youDraw, 245, 370);
         cardIsPicked = false;
     }
 }
