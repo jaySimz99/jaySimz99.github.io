@@ -4,12 +4,14 @@
     body {
         margin: 0%;
         padding: 0%;
+        margin-left: 0%;
+        margin-right: 0%;
     }
 
     #the_canvas,#the_canvas_results, #the_canvas_stars {
        left: 50%;
        top: 290px;
-       width: 120%; 
+       width: 90%; 
     }
 
     #the_canvas_rival, #the_canvas_stars_rival, #the_canvas_results_rival{
@@ -26,4 +28,5 @@
         position: relative;
         top: 50%;
     }
+
 }
