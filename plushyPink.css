@@ -146,7 +146,7 @@ a:link {
     margin-top: 15%;
 }
 
-#play, #multiplay, #settings, #back {
+#play, #multiplay, #settings, #back,#nextRound {
     font-family: 'Fredoka One', cursive;
     color: white;
     border: 2px solid #ee2db4;
@@ -168,7 +168,7 @@ a:link {
 
 
 
-#play:hover, #multiplay:hover, #settings:hover,#back:hover   {
+#play:hover, #multiplay:hover, #settings:hover,#back:hover,#nextRound:hover {
     background-color: #bcdffd; 
     padding-right: 15px;
     padding-left: 15px;
@@ -178,7 +178,7 @@ a:link {
     inset 0 4px 1px #ff71db;
   }
 
-  #play:focus, #multiplay:focus, #settings:focus, #back:focus {
+  #play:focus, #multiplay:focus, #settings:focus, #back:focus,#nextRound:focus {
     background-color: #46dbdb; 
     padding-right: 15px;
     padding-left: 15px;
@@ -187,6 +187,12 @@ a:link {
     inset 0 -4px 1px #80ffff,
     inset 0 4px 1px #ff84ef;
   }
+
+#nextRound{
+    position: relative;
+    left: 37%;
+    bottom: 150px;
+}
 
 body {
     background-image:

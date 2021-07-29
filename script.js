@@ -48,3 +48,4 @@ viewport_set();
 window.onresize = function() { 
 	viewport_set(); 
 }
+
