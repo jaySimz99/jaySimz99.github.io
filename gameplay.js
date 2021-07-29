@@ -87,6 +87,7 @@ function clicked(event) {
         playerPick = "rock";//picked vairable changes 
         cardIsPicked = true;//Detects of a card has been picked 
     }
+    
 
     if (x < 300 && x > 172 && y > 110 && y < 292 && cardIsPicked == false) {
         playerPick = "paper";
