@@ -252,17 +252,21 @@ function victorious() {
 
     if (rivalScore == 3){
         document.getElementById("form").style.width = "100%";
+        document.getElementById("winMessage").innerHTML = "You Lose!";
     }
 
     if (playScore == 3){
         document.getElementById("form").style.width = "100%";
+        document.getElementById("winMessage").innerHTML = "You Win!";
     }
 
 
 }
 
+
 document.getElementById('nextRound').style.display ='none';
   function nextRound(){ 
+    
     var roundNum = 0;
     document.getElementById('nextRound').style.display ='none';
     if (rivalScore < trackRound ||playScore < trackRound||drawScore < trackRound)  {
@@ -282,6 +286,7 @@ document.getElementById('nextRound').style.display ='none';
             console.log("Draw Score: " + drawScore);
 
     document.getElementById("round").innerHTML = "Round " + rounds;
+    document.getElementById("winMessage").innerHTML = "You Win!";
   }
 
 
