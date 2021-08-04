@@ -9,13 +9,12 @@
     margin-right: auto;
     display: block; 
     border-radius: 30px;
-    top: 56%;
-    left: 50%;
+    top: 60%;
+    left: 40%;
     transform: translate(-50%, -50%);   
 }
 
-#the_canvas_results, #the_canvas_stars {
-  background-color: transparent;
+#the_canvas_rival, #the_canvas_stars_rival, #the_canvas_results_rival{
   position: absolute;
   padding-left: 0;
   padding-right: 0;
@@ -23,9 +22,31 @@
   margin-right: auto;
   display: block; 
   border-radius: 30px;
-  top: 56%;
+  top: 60%;
+  left: 68.5%;
+  transform: translate(-50%, -50%);         
+}
+
+#the_canvas_results, #the_canvas_stars {
+  background-color: transparent;
+  position: absolute;
+  padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block; 
+    border-radius: 30px;
+    top: 60%;
+    left: 40%;
+    transform: translate(-50%, -50%);      
+}
+
+#winMessage {
+  font-size: 95px;
+  position: absolute;
   left: 50%;
-  transform: translate(-50%, -50%);        
+  top: 20%;
+  transform: translate(-50%, -50%);  
 }
 
 a:link { 
@@ -82,7 +103,7 @@ margin-right: 200px;
   margin-top: 15%;
 }
 
-#play, #multiplay, #settings, #back  {
+#play, #multiplay, #settings, #back,#nextRound, #retry, #home   {
   font-family: Arial, Helvetica, sans-serif;
   text-transform: uppercase;
   color: white;
@@ -98,7 +119,7 @@ margin-right: 200px;
 }
 
 
-#play:hover, #multiplay:hover, #settings:hover, #back:hover  {
+#play:hover, #multiplay:hover, #settings:hover, #back:hover, #nextRound:hover,#retry:hover, #home:hover  {
   padding-right: 15px;
   padding-left: 15px;
   background-image:
@@ -113,37 +134,27 @@ body {
 
 audio { display:none;}
 
-#save {
-  border: 2px solid rgb(146, 13, 255);
-  font-family: 'Righteous', cursive;
-  color: white;
-  border-radius: 40px;
-  padding: 5px;
-  padding-right: 10px;
-  padding-left: 10px;
-  background-color: blueviolet;
-  font-size: 40px;
-  box-shadow: 
-  inset 0 -4px 1px #42a4ff,
-  inset 0 4px 1px #ee38ff;
+#nextRound{
+  position: relative;
+  left: 30%;
+  bottom: 110px;
 }
 
-#save:hover, #closeButton:hover {
-  background-color: #4af020; 
-  padding-right: 15px;
-  padding-left: 15px;
-  color: rgb(0, 0, 0);
-  box-shadow: 
-  inset 0 -4px 1px #7afdfd,
-  inset 0 4px 1px #deff4a;
+#retry{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);  
 }
 
-#save:focus, #closeButton:focus {
-  background-color: #46dbdb; 
-  padding-right: 15px;
-  padding-left: 15px;
-  color: rgb(0, 0, 0);
-  box-shadow: 
-  inset 0 -4px 1px #a0ff88,
-  inset 0 4px 1px #84ffd0;
+#home {
+  position: absolute;
+  left: 50%;
+  top: 62%;
+  transform: translate(-50%, -50%); 
+}
+
+
+.overlay-win_state {
+  background-color: rgba(42, 134, 255, 0.9);
 }

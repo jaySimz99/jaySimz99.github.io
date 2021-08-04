@@ -21,6 +21,7 @@ let speed = 0;
 const SLOW_FRAME = 6;
 var pickCardRand;
 var playerPick;
+var playerClicked = false;
 var computerPick;
 var cardIsPicked = false;
 var rounds = 1;
@@ -75,7 +76,8 @@ context2.strokeStyle = "rgba(92, 11, 90, 1)";
 context2.textAlign = "center";
 
 
-canvas_stars.addEventListener("mousedown", clicked, false);//Event listener to detect when the mouse has been clicked
+canvas_stars.addEventListener("mousedown", clicked);//Event listener to detect when the mouse has been clicked
+
 
 function clicked(event) {
     let rect = canvas_stars.getBoundingClientRect();//Get the boundaries of the canvas 
@@ -86,20 +88,24 @@ function clicked(event) {
     if (x < 160 && x > 32 && y > 110 && y < 292 && cardIsPicked == false) { //coordinates of the cards on the canvas 
         playerPick = "rock";//picked vairable changes 
         cardIsPicked = true;//Detects of a card has been picked 
+        playerClicked = true;
     }
     
 
     if (x < 300 && x > 172 && y > 110 && y < 292 && cardIsPicked == false) {
         playerPick = "paper";
         cardIsPicked = true;
+        playerClicked = true;
     }
 
     if (x < 440 && x > 312 && y > 110 && y < 292 && cardIsPicked == false) {
         playerPick = "scissors";
         cardIsPicked = true;
+        playerClicked = true;
     }
 
 }
+
 
 function randomNum() {
 
@@ -227,6 +233,7 @@ function victorious() {
          context2.font = "40px Arial";
         context2.fillText(youWin, 245, 370);
         cardIsPicked = false;
+        playerClicked = false;
         document.getElementById('nextRound').style.display ='inline'
     }
 
@@ -237,6 +244,7 @@ function victorious() {
         context2.font = "40px Arial";
         context2.fillText(youLose, 245, 370);
         cardIsPicked = false;
+        playerClicked = false;
         document.getElementById('nextRound').style.display ='inline'
     }
 
@@ -247,6 +255,7 @@ function victorious() {
         context2.font = "40px Arial";
         context2.fillText(youDraw, 245, 370);
         cardIsPicked = false;
+        playerClicked = false;
         document.getElementById('nextRound').style.display ='inline'
     }
 
@@ -266,7 +275,6 @@ function victorious() {
 
 document.getElementById('nextRound').style.display ='none';
   function nextRound(){ 
-    
     var roundNum = 0;
     document.getElementById('nextRound').style.display ='none';
     if (rivalScore < trackRound ||playScore < trackRound||drawScore < trackRound)  {
@@ -284,6 +292,7 @@ document.getElementById('nextRound').style.display ='none';
            console.log("Player Score: " + playScore);
         console.log("Rival Score: " + rivalScore);
             console.log("Draw Score: " + drawScore);
+            console.log("Player Clicked: " + playerClicked);
 
     document.getElementById("round").innerHTML = "Round " + rounds;
     document.getElementById("winMessage").innerHTML = "You Win!";

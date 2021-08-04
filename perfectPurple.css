@@ -10,12 +10,18 @@
     display: block; 
     border-radius: 30px;
     top: 60%;
-    left: 50%;
-    transform: translate(-50%, -50%);   
+    left: 40%;
+    transform: translate(-50%, -50%);      
 }
 
 
-#the_canvas_results,#the_canvas_stars  {
+#the_canvas_rival{
+    background-image:
+    linear-gradient(to right, #97ee25, #97ee25,#4ec002);
+}
+
+
+#the_canvas_results, #the_canvas_stars {
     background-color: transparent;
     position: absolute;
     padding-left: 0;
@@ -25,8 +31,24 @@
     display: block; 
     border-radius: 30px;
     top: 60%;
-    left: 50%;
+    left: 40%;
     transform: translate(-50%, -50%);        
+}
+
+
+
+
+#the_canvas_rival, #the_canvas_stars_rival, #the_canvas_results_rival{
+    position: absolute;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block; 
+    border-radius: 30px;
+    top: 60%;
+    left: 68.5%;
+    transform: translate(-50%, -50%);         
 }
 
 
@@ -68,8 +90,8 @@ h3 {
 #enemyName {
     -webkit-text-fill-color: white;
      -webkit-text-stroke-width: 1.4px;
-     -webkit-text-stroke-color:#00bbb2;
-     background: -webkit-linear-gradient(#eee,rgb(242, 255, 252),rgb(157, 255, 239),  #7affe2);
+     -webkit-text-stroke-color:#679e00;
+     background: -webkit-linear-gradient(#eee,rgb(242, 255, 252),rgb(160, 252, 107),  #8ad400);
      -webkit-background-clip: text;
      -webkit-text-fill-color: transparent;
 }
@@ -81,23 +103,8 @@ margin-left: 200px;
 margin-right: 200px;
 }
 
-#circle1, #circle2, #circle3, #circle4, #circle5, #circle6       {
-    position: relative;  
-    bottom: 50px;
-    width: 33px;
-    height: 33px;
-    display: inline-block;
-    border-style: solid;
-    border-color: #c52ad3;
-    background: #fea1ff;
-    border-radius: 50%;
-    margin-left: 5px;
-    margin-right: 5px;
-}
-
-#circle4, #circle5, #circle6 {
-    border-color: #004ddd;
-    background: rgb(133, 145, 255); 
+.overlay-win_state {
+    background-color: rgba(145, 248, 27, 0.8);
 }
 
 
@@ -133,7 +140,7 @@ a:link {
     margin-top: 15%;
 }
 
-#play, #multiplay, #settings, #back  {
+#play, #multiplay, #settings, #back, #nextRound,#retry, #home   {
     border: 2px solid rgb(146, 13, 255);
     font-family: 'Righteous', cursive;
     color: white;
@@ -151,8 +158,52 @@ a:link {
 }
 
 
+#winMessage {
+    font-size: 95px;
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%, -50%);  
+    -webkit-text-stroke-color:#c52ad3;
+    background: -webkit-linear-gradient(#eee,rgb(255, 242, 245),rgb(255, 219, 226),  #fea1ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+}
 
-#play:hover, #multiplay:hover, #settings:hover, #back:hover  {
+
+
+ #retry{
+    position: absolute;
+    padding:10px;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%, -50%);  
+}
+
+#home {
+    position: absolute;
+    padding:10px;
+    left: 50%;
+    top: 57%;
+    transform: translate(-50%, -50%); 
+}
+
+#retry, #home{
+    background-color: #c52ad3;
+       box-shadow: 
+    inset 0 -4px 1px #42ff42,
+    inset 0 4px 1px #6fdee6;
+}
+
+#nextRound, #back{
+    background-color: rgb(220, 43, 226);
+    box-shadow: 
+    inset 0 -4px 1px #42ff42,
+    inset 0 4px 1px #6fdee6;
+}
+
+
+#play:hover, #multiplay:hover, #settings:hover, #back:hover, #nextRound:hover,#retry:hover, #home:hover {
     background-color: #4af020; 
     padding-right: 15px;
     padding-left: 15px;
@@ -162,7 +213,7 @@ a:link {
     inset 0 4px 1px #deff4a;
   }
 
-  #play:focus, #multiplay:focus, #settings:focus, #back:focus {
+  #play:focus, #multiplay:focus, #settings:focus, #back:focus, #nextRound:focus,#retry:focus, #home:focus {
     background-color: #46dbdb; 
     padding-right: 15px;
     padding-left: 15px;
@@ -196,24 +247,11 @@ background-size: 100px 100px;
     inset 0 4px 1px #ee38ff;
 }
 
-#save:hover, #closeButton:hover {
-    background-color: #4af020; 
-    padding-right: 15px;
-    padding-left: 15px;
-    color: rgb(0, 0, 0);
-    box-shadow: 
-    inset 0 -4px 1px #7afdfd,
-    inset 0 4px 1px #deff4a;
-}
-
-#save:focus, #closeButton:focus {
-    background-color: #46dbdb; 
-    padding-right: 15px;
-    padding-left: 15px;
-    color: rgb(0, 0, 0);
-    box-shadow: 
-    inset 0 -4px 1px #a0ff88,
-    inset 0 4px 1px #84ffd0;
+  
+#nextRound{
+    position: relative;
+    left: 37%;
+    bottom: 225px;
 }
 
     
