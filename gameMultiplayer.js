@@ -235,7 +235,6 @@ function victorious() {
         context2.fillText(youWin, 245, 370);
         cardIsPicked = false;
         document.getElementById('nextRound').style.display ='inline'
-        document.getElementById('canvas_stop').style.display ='inline'
     }
 
     if (victory == "No" && cardIsPicked == true) {
@@ -246,7 +245,6 @@ function victorious() {
         context2.fillText(youLose, 245, 370);
         cardIsPicked = false;
         document.getElementById('nextRound').style.display ='inline'
-        document.getElementById('canvas_stop').style.display ='inline'
     }
 
     if (victory == "Draw" && cardIsPicked == true) {
@@ -257,7 +255,6 @@ function victorious() {
         context2.fillText(youDraw, 245, 370);
         cardIsPicked = false;
         document.getElementById('nextRound').style.display ='inline'
-        document.getElementById('canvas_stop').style.display ='inline'
     }
 
     if (rivalScore == 3){
@@ -276,12 +273,9 @@ function victorious() {
 
 
 document.getElementById('nextRound').style.display ='none';
-document.getElementById('canvas_stop').style.display ='none';
- 
-function nextRound(){ 
+  function nextRound(){ 
     var roundNum = 0;
     document.getElementById('nextRound').style.display ='none';
-    document.getElementById('canvas_stop').style.display ='none';
     if (rivalScore < trackRound ||playScore < trackRound||drawScore < trackRound)  {
             context2.clearRect(0, 0, CANVAS_WDT, CANVAS_HGT);
             contextR2.clearRect(0, 0, CANVAS_WDT, CANVAS_HGT);

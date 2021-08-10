@@ -14,7 +14,7 @@
     <link rel="manifest" href="/manifest.json">
     <link rel="apple-touch-icon" href="icons-192.png">
     <!--StyleSheet-->
-    <link id="switchStyle" rel="stylesheet" type="text/css" href="plushyPink.css">
+    <link id="switchStyle" rel="stylesheet" type="text/css" href="perfectPurple.css">
     <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="./styleForm.css">
     <link rel="stylesheet" href="./size.css">
@@ -58,6 +58,7 @@
         Oops! looks like your browser does not support canvas tag
     </canvas>
 
+
     <canvas tabindex="1" id="the_canvas_rival" width="300" height="400">
         Oops! looks like your browser does not support canvas tag
     </canvas>
@@ -71,15 +72,20 @@
     </canvas>
 
 
+    <canvas tabindex="1" id="canvas_stop" width="480" height="400">
+        Oops! looks like your browser does not support canvas tag
+    </canvas>
+
 
     <a href='index.html'><button id = "back">back</button></a>
     <button input type="button" id="nextRound" onclick="nextRound()">Next Round!</button>
 
     <div class="overlay-win_state" id="form">
         <h2 id="winMessage">You Lose</h2>
+        <h2 id="score">0:0</h2>
         <div id = "home_retry_buttons">
         <a href='index.html'><button id = "home" >home</button></a>
-        <button id = "retry" onClick="document.location.reload(true)">retry</button>
+        <button id = "retry" onClick="document.location.reload(true)">Play Again?</button>
     </div>
     </div>
 </div>
@@ -89,4 +95,5 @@
     <!--JavaScript File-->
     <script src="./script.js"></script>
     <script src="./gameplay.js"></script>
+    <script src="./localStorage.js"></script>
 </html>
