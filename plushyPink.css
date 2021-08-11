@@ -121,6 +121,15 @@ margin-right: 200px;
     bottom: 170px;
 }
 
+@media only screen and (max-width: 500px) {
+    #scores
+    {
+        font-size: 60px;
+        top: 8%;  
+        right: 200%;
+    }
+}
+
 a:link { 
     text-decoration: none;}
 

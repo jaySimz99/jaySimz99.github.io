@@ -20,14 +20,16 @@
     }
 
     #the_canvas,#the_canvas_results, #the_canvas_stars {
+        position: absolute;
        left: 50%;
-       top: 290px;
+       top: 37%;
        width: 90%; 
     }
 
     #the_canvas_rival, #the_canvas_stars_rival, #the_canvas_results_rival{
+        position: absolute;
         left: 70%;
-        top: 80%;
+        top: 78%;
         width: 190px; 
     }
 
@@ -36,7 +38,8 @@
     }
 
     h1 {
-        font-size: 50px;  
+        font-size: 30px; 
+        word-break: break-all;
     }
 
     #rsptitle {
@@ -47,5 +50,43 @@
         position: relative;
         top: 50%;
     }
+
+
+    #nextRound {
+        font-size: 23px;
+        top: -440px;
+        left: 150px;
+    }
+
+    #winMessage {
+        position: absolute;
+        font-size: 70px;
+        left: 33%;
+        top: 38.5%;
+    }
+    
+    #score {
+        position: absolute;
+        font-size: 60px;
+        top: 24%;  
+        left: 26%;
+    }
+    
+     #retry{
+        position: absolute;
+        padding:10px;
+        left: 33%;
+        top: 40%;
+        transform: translate(-50%, -50%);  
+    }
+    
+    #home {
+        position: absolute;
+        padding:10px;
+        left: 33%;
+        top: 48%;
+        transform: translate(-50%, -50%); 
+    }
+    
 
 }
