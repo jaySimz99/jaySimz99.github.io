@@ -285,7 +285,7 @@ transition: 2.5s;
         margin-right: 0%;
     }
 
-    #the_canvas,#the_canvas_results, #the_canvas_stars {
+    #the_canvas,#the_canvas_results, #the_canvas_stars, #canvas_stop  {
         position: absolute;
        left: 50%;
        top: 37%;
