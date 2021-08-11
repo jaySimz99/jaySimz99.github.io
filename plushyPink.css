@@ -108,10 +108,18 @@ h3 {
      -webkit-text-fill-color: transparent;
 }
 
-#playerScore, #enemyScore {
-display: inline-block;
-margin-left: 200px;
-margin-right: 200px;
+#playerName{
+    position: absolute;
+    left: 25%;
+    top: 10%;
+
+}
+
+#enemyName{
+    position: absolute;
+    left: 65%;
+    top: 10%;
+
 }
 
 #scores
@@ -182,9 +190,9 @@ a:link {
 
   
 #nextRound{
-    position: relative;
+    position: absolute;
     left: 37%;
-    bottom: 150px;
+    top: 40%;
 }
 
 body {
@@ -275,53 +283,51 @@ body {
     }
 
     #back {
-        position: relative;
-        top: 50%;
+        position: absolute;
+        top: 60%;
     }
 
 
     #nextRound {
         position: absolute;
-        font-size: 23px;
-        top: 440px;
-        left: 80px;
+        font-size: 25px;
+        top: 23%;
+        left: 43%;
     }
 
     #winMessage {
-        position: absolute;
         font-size: 70px;
-        left: 33%;
-        top: 36%;
     }
     
     #score {
         position: absolute;
         font-size: 60px;
-        top: 21%;  
-        left: 26%;
+        top: 25%;  
+        left: 39%;
     }
     
      #retry{
         position: absolute;
-        padding:10px;
-        left: 33%;
-        top: 40%;
-        transform: translate(-50%, -50%);  
+        font-size: 30px;
+        top: 57%;
     }
     
     #home {
         position: absolute;
-        padding:10px;
-        left: 33%;
-        top: 48%;
-        transform: translate(-50%, -50%); 
     }
     
     #enemyName {
         position: absolute;
         font-size: 40px;
         left: 3%;
-        top: 300%; 
+        top: 80%; 
+    }
+
+    #playerName {
+        position: absolute;
+        font-size: 40px;
+        left: 10%;
+        top: 1%; 
     }
 
 }
