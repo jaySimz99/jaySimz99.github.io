@@ -12,7 +12,7 @@ var contextR2 = canvas_results_rival.getContext("2d");
 var the_canvas_stars_rival = document.getElementById("the_canvas_stars_rival");
 var contextR3 = the_canvas_stars_rival.getContext("2d");
 
-
+document.getElementById("form").style.width = "100%";
 const CANVAS_WDT = canvas.width = 480;
 const CANVAS_HGT = canvas.height = 400;
 const SPRITE_WDT = 700;
@@ -79,7 +79,7 @@ context2.textAlign = "center";
 //Event listener to detect when the mouse has been clicked
 
 
-canvas_stars.addEventListener('mousedown',clicked);
+canvas_stars.addEventListener('mousedown', clicked);
 
 
 
@@ -93,7 +93,7 @@ function clicked(event) {
         playerPick = "rock";//picked vairable changes 
         cardIsPicked = true;//Detects of a card has been picked 
     }
-    
+
 
     if (x < 300 && x > 172 && y > 110 && y < 292 && cardIsPicked == false) {
         playerPick = "paper";
@@ -184,13 +184,11 @@ function animate() {
 
 function whenCardisPicked() {
     if (computer == "rock" && cardIsPicked == true)//shows the card that the computer has picked depending on computer variable 
-    {  contextR2.drawImage(rock2, framex * SPRITE_WDT, 0, 700, 700, 55, 100, 200, 200); }
+    { contextR2.drawImage(rock2, framex * SPRITE_WDT, 0, 700, 700, 55, 100, 200, 200); }
 
-    if (computer == "paper" && cardIsPicked == true) 
-    {  contextR2.drawImage(paper2, framex * SPRITE_WDT, 0, 700, 700, 55, 100, 200, 200); }
+    if (computer == "paper" && cardIsPicked == true) { contextR2.drawImage(paper2, framex * SPRITE_WDT, 0, 700, 700, 55, 100, 200, 200); }
 
-    if (computer == "scissors" && cardIsPicked == true) 
-    {  contextR2.drawImage(scissors2, framex * SPRITE_WDT, 0, 700, 700, 55, 100, 200, 200); }
+    if (computer == "scissors" && cardIsPicked == true) { contextR2.drawImage(scissors2, framex * SPRITE_WDT, 0, 700, 700, 55, 100, 200, 200); }
 
     context2.font = "24px Arial";
 
@@ -225,47 +223,47 @@ function whenCardisPicked() {
 
 function victorious() {
 
- 
 
-    if (victory == "Yes" && cardIsPicked == true ) {
+
+    if (victory == "Yes" && cardIsPicked == true) {
         playScore += 1;
-        trackRound+= 1;
+        trackRound += 1;
         victory = "";
-         context2.font = "40px Arial";
+        context2.font = "40px Arial";
         context2.fillText(youWin, 245, 370);
         cardIsPicked = false;
-        document.getElementById('nextRound').style.display ='inline'
-        document.getElementById('canvas_stop').style.display ='inline'
+        document.getElementById('nextRound').style.display = 'inline'
+        document.getElementById('canvas_stop').style.display = 'inline'
     }
 
     if (victory == "No" && cardIsPicked == true) {
         rivalScore += 1;
-        trackRound+= 1;
+        trackRound += 1;
         victory = "";
         context2.font = "40px Arial";
         context2.fillText(youLose, 245, 370);
         cardIsPicked = false;
-        document.getElementById('nextRound').style.display ='inline'
-        document.getElementById('canvas_stop').style.display ='inline'
+        document.getElementById('nextRound').style.display = 'inline'
+        document.getElementById('canvas_stop').style.display = 'inline'
     }
 
     if (victory == "Draw" && cardIsPicked == true) {
         drawScore += 1;
-        trackRound+= 1;
+        trackRound += 1;
         victory = "";
         context2.font = "40px Arial";
         context2.fillText(youDraw, 245, 370);
         cardIsPicked = false;
-        document.getElementById('nextRound').style.display ='inline'
-        document.getElementById('canvas_stop').style.display ='inline'
+        document.getElementById('nextRound').style.display = 'inline'
+        document.getElementById('canvas_stop').style.display = 'inline'
     }
 
-    if (rivalScore == 3){
+    if (rivalScore == 3) {
         document.getElementById("form").style.width = "100%";
         document.getElementById("winMessage").innerHTML = "You Lose!";
     }
 
-    if (playScore == 3){
+    if (playScore == 3) {
         document.getElementById("form").style.width = "100%";
         document.getElementById("winMessage").innerHTML = "You Win!";
     }
@@ -275,33 +273,33 @@ function victorious() {
 }
 
 
-document.getElementById('nextRound').style.display ='none';
-document.getElementById('canvas_stop').style.display ='none';
- 
-function nextRound(){ 
-    var roundNum = 0;
-    document.getElementById('nextRound').style.display ='none';
-    document.getElementById('canvas_stop').style.display ='none';
-    if (rivalScore < trackRound ||playScore < trackRound||drawScore < trackRound)  {
-            context2.clearRect(0, 0, CANVAS_WDT, CANVAS_HGT);
-            contextR2.clearRect(0, 0, CANVAS_WDT, CANVAS_HGT);
-            playerPick = "";
-            computerPick = "";
+document.getElementById('nextRound').style.display = 'none';
+document.getElementById('canvas_stop').style.display = 'none';
 
-       rounds = trackRound;
+function nextRound() {
+    var roundNum = 0;
+    document.getElementById('nextRound').style.display = 'none';
+    document.getElementById('canvas_stop').style.display = 'none';
+    if (rivalScore < trackRound || playScore < trackRound || drawScore < trackRound) {
+        context2.clearRect(0, 0, CANVAS_WDT, CANVAS_HGT);
+        contextR2.clearRect(0, 0, CANVAS_WDT, CANVAS_HGT);
+        playerPick = "";
+        computerPick = "";
+
+        rounds = trackRound;
     }
 
     console.log("roundNum: " + roundNum);
-            console.log("rounds: " + rounds);
-           console.log("trackrounds: " + trackRound);
-           console.log("Player Score: " + playScore);
-        console.log("Rival Score: " + rivalScore);
-            console.log("Draw Score: " + drawScore);
-            console.log("Player Clicked: " + playerClicked);
+    console.log("rounds: " + rounds);
+    console.log("trackrounds: " + trackRound);
+    console.log("Player Score: " + playScore);
+    console.log("Rival Score: " + rivalScore);
+    console.log("Draw Score: " + drawScore);
+    console.log("Player Clicked: " + playerClicked);
 
     document.getElementById("round").innerHTML = "Round " + rounds;
     document.getElementById("winMessage").innerHTML = "You Win!";
-  }
+}
 
 
 
