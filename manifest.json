@@ -2,8 +2,8 @@
     "name": "Rock! Paper! Scissors!",
     "short_name": "RPS!",
     "start_url": ".",
-    "background_color": "#ffffff",
-    "theme_color": "#ffffff",
+    "background_color": "#317EFB",
+    "theme_color": "#317EFB",
     "display": "standalone",
     "icons": [
     {
