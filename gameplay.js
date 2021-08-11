@@ -12,7 +12,7 @@ var contextR2 = canvas_results_rival.getContext("2d");
 var the_canvas_stars_rival = document.getElementById("the_canvas_stars_rival");
 var contextR3 = the_canvas_stars_rival.getContext("2d");
 
-document.getElementById("form").style.width = "100%";
+
 const CANVAS_WDT = canvas.width = 480;
 const CANVAS_HGT = canvas.height = 400;
 const SPRITE_WDT = 700;
