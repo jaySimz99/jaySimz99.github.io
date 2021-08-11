@@ -12,15 +12,27 @@ function display() {
     if (document.getElementById('pinkOpt').checked) {
         switchStyle('plushyPink.css');
     }
-    if (document.getElementById('blueOpt').checked) {
-        switchStyle('basicBlue.css');
-    }
 
     var playerName = document.forms["settingsForm"]["name"].value;;
     alert("Hello " + playerName + "!");
 
+    localStorage.setItem('player1name', 'name');
+
     document.getElementById("form").style.width = "0%";
+
 }
+
+function GetGamerTag(key, elementID) {
+    var value = document.getElementById(elementID).value;
+    localStorage.setItem(key, value);
+    getItem(key);
+}
+
+function getItem(key){
+	var localStorageValue = localStorage.getItem(key);
+	document.getElementById("playerName").innerHTML = localStorageValue;
+}
+
 
 function openNav() {
     document.getElementById("form").style.width = "100%";
