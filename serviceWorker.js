@@ -1,21 +1,7 @@
 const cache_name = 'v1';
 const assets = [
   'index.html',
-  'gameloop.html',
-  'plushyPink.css',
-  'perfectPurple.css',
-  'style.css',
-  'script.js',
-  'gameplay.js',
-  'gameMultiplayer.js',
-  'localStorage.js',
-  'manifest.json',
-  'rock.png',
-  'paper.png',
-  'scissors.png',
-  'stars.png',
-  'starsfilled.png',
-  'load.png',
+  'gameloop.html'
 ];
 
 
