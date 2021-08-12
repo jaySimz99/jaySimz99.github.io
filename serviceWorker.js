@@ -29,3 +29,13 @@ self.addEventListener('activate', (e) => {
   console.log('Service Worker: activated');
   });//call activation
   
+
+  
+self.addEventListener('fetch', (e) => {
+  console.log('Service Worker: fetched');
+  e.respondWith(
+    fetch(e.request).catch(() => caches.match(e.request))
+  )
+  });//call activation
+  
+
