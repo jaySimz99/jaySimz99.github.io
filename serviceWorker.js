@@ -1,6 +1,5 @@
-const   cache_name = 'v1';
+const cache_name = 'v1';
 const assets = [
-  '/',
   'index.html',
   'gameloop.html',
   'plushyPink.css',
@@ -24,9 +23,13 @@ self.addEventListener('install', (e) => {
 console.log('Service Worker: installed');
 
 e.waitUntil(
-caches.open(cache_name).then(cache => {console.log('service work: caching files');
+caches
+.open(cache_name)
+.then(cache => {
+  console.log('service work: caching files');
 cache.addAll(assets);
-}).then(() => self.skipWaiting())
+})
+.then(() => self.skipWaiting())
 );
 });//call installation 
 
