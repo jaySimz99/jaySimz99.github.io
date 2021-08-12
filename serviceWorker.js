@@ -1,7 +1,12 @@
 const cache_name = 'v1';
 const assets = [
   'index.html',
-  'gameloop.html'
+  'gameloop.html',
+  'plushyPink.css',
+  'perfectPurple.css',
+  'styleForm.css',
+  'script.js',
+  'gameplay.js'
 ];
 
 
