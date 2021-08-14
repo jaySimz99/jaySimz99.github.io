@@ -89,6 +89,29 @@ function clicked(event) {
     var x = event.clientX - rect.left;//Get the measurement from the left of canvas
     var y = event.clientY - rect.top;//Get the measurement from the top of canvas
 
+    if ( screen.width < 400 ) {
+
+    if (x < 107 && x > 17 && y > 92 && y < 196 && cardIsPicked == false) { //coordinates of the cards on the canvas 
+        playerPick = "rock";//picked vairable changes 
+        cardIsPicked = true;//Detects of a card has been picked 
+    }
+
+
+    if (x < 202 && x > 112 && y > 92 && y < 196 && cardIsPicked == false) {
+        playerPick = "paper";
+        cardIsPicked = true;
+    }
+
+    if (x < 297 && x > 207 && y > 92 && y < 196 && cardIsPicked == false) {
+        playerPick = "scissors";
+        cardIsPicked = true;
+    }
+
+}
+
+else {
+
+         
     if (x < 160 && x > 32 && y > 110 && y < 292 && cardIsPicked == false) { //coordinates of the cards on the canvas 
         playerPick = "rock";//picked vairable changes 
         cardIsPicked = true;//Detects of a card has been picked 
@@ -104,6 +127,7 @@ function clicked(event) {
         playerPick = "scissors";
         cardIsPicked = true;
     }
+}
 
 }
 
