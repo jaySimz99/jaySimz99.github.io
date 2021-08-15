@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <title>Rock, Paper, Scisscors! </title>
     <meta name="viewport" content="width=980" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no " id="viewport-meta">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" id="viewport-meta">
     <meta name="description" content="HTML5 GameLoop Template">
     <meta name="author" content="UI Programming">
     <meta name="theme-color" content="#317EFB">
@@ -30,15 +30,14 @@
 
 <body>
 
-    <div class="filter"> 
     <h2 id="round">Round 1</h2><br>
 
    <h3 id="playerName">You</h3>
 
 
   <h3 id="enemyName">Enemy</h3>
-        
-             
+
+    
 
     <canvas tabindex="0" id="the_canvas" width="480" height="400">
         Oops! looks like your browser does not support canvas tag
@@ -74,6 +73,8 @@
     <a href='index.html'><button id = "back">back</button></a>
     <button input type="button" id="nextRound" onclick="nextRound()">Next Round!</button>
 
+    <h3 id="winLoseDraw">You Win!</h3>  
+
     <div class="overlay-win_state" id="form">
         <h2 id="winMessage">You Lose</h2>
         <h2 id="score">0:0</h2>
@@ -82,7 +83,6 @@
         <button id = "retry" onClick="document.location.reload(true)">Play Again?</button>
     </div>
     </div>
-</div>
 </div>
 
 </body>

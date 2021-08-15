@@ -5,6 +5,9 @@ var context2 = canvas_results.getContext("2d");
 var canvas_stars = document.getElementById("the_canvas_stars");
 var context3 = canvas_stars.getContext("2d");
 
+var canvas_stop = document.getElementById("canvas_stop");
+var context4 = canvas_stop.getContext("2d");
+
 var canvas_rival = document.getElementById("the_canvas_rival");
 var contextR = canvas_rival.getContext("2d");
 var canvas_results_rival = document.getElementById("the_canvas_results_rival");
@@ -12,6 +15,7 @@ var contextR2 = canvas_results_rival.getContext("2d");
 var the_canvas_stars_rival = document.getElementById("the_canvas_stars_rival");
 var contextR3 = the_canvas_stars_rival.getContext("2d");
 document.getElementById("playerName").innerHTML = localStorage.getItem("playerName");
+document.getElementById('winLoseDraw').style.display = 'none';
 
 if (localStorage.getItem("playerName") == ""){
     document.getElementById("playerName").innerHTML = "You";
@@ -35,18 +39,24 @@ var winTextXPos;
 var winTextYPos;
 var cardTextYPos;
 var cardTextYPos;
-youPicked = "You picked ";
-youWin = "You Win!";
-youLose = "You Lose!";
-youDraw = "Draw!";
 var playScore = 0;
 var rivalScore = 0;
 var drawScore = 0;
 var victory = "";
 var trackRound = 1;
 
+var answer = localStorage.getItem('checkboxPurple');
+    
+    
+
 const rock = new Image();//my images 
-rock.src = "rock.png";
+if (answer == "yes") {
+    rock.src = "greenRock.png";     
+}else
+{
+    rock.src = "rock.png";  
+}
+
 
 const paper = new Image();
 paper.src = "paper.png";
@@ -55,7 +65,12 @@ const scissors = new Image();
 scissors.src = "scissors.png";
 
 const rock2 = new Image();
-rock2.src = "rock.png";
+if (answer == "yes") {
+    rock2.src = "greenRock.png";     
+}else
+{
+    rock2.src = "rock.png";  
+}
 
 const paper2 = new Image();
 paper2.src = "paper.png";
@@ -71,6 +86,10 @@ star.src = "star.png";
 
 const starF = new Image();
 starF.src = "starfilled.png";
+
+const cardback = new Image();
+cardback.src = "cardback.png";
+
 
 context.shadowOffsetX = 5;//setting the shadows on the canvas 
 context.shadowOffsetY = 3;
@@ -165,6 +184,21 @@ function animate() {
     context.drawImage(scissors, framex * SPRITE_WDT, 0, 700, 700, 280, 100, 200, 200);
     contextR.drawImage(load, framex * SPRITE_WDT, 0, 700, 700, 55, 100, 200, 200);
 
+    if (playerPick == "rock"){
+        context4.drawImage(cardback, 0, 0, 700, 700, 140, 100, 200, 200);
+        context4.drawImage(cardback, 0, 0, 700, 700, 280, 100, 200, 200);
+    }
+
+    if (playerPick == "paper"){
+        context4.drawImage(cardback, 0, 0, 700, 700, 0, 100, 200, 200);
+        context4.drawImage(cardback, 0, 0, 700, 700, 280, 100, 200, 200);
+    }
+
+    if (playerPick == "scissors"){
+        context4.drawImage(cardback, 0, 0, 700, 700, 0, 100, 200, 200);
+        context4.drawImage(cardback, 0, 0, 700, 700, 140, 100, 200, 200);
+    }
+
     //Player points
     context.drawImage(star, 0, 0, 700, 700, 40, 50, 200, 200);
     context.drawImage(star, 0, 0, 700, 700, 90, 50, 200, 200);
@@ -219,12 +253,6 @@ function whenCardisPicked() {
 
     if (computer == "scissors" && cardIsPicked == true) { contextR2.drawImage(scissors2, framex * SPRITE_WDT, 0, 700, 700, 55, 100, 200, 200); }
 
-    context2.font = "24px Arial";
-
-    if (cardIsPicked == true) {//message appears when a card is picked 
-        context2.fillText(youPicked + playerPick, 230, 315);
-    }
-
 
     if (playerPick === "rock" && computer === "scissors" ||
         playerPick === "scissors" && computer === "paper" ||
@@ -258,8 +286,8 @@ function victorious() {
         playScore += 1;
         trackRound += 1;
         victory = "";
-        context2.font = "40px Arial";
-        context2.fillText(youWin, 245, 370);
+        document.getElementById('winLoseDraw').style.display = 'inline'
+        document.getElementById("winLoseDraw").innerHTML = "You Win!";
         cardIsPicked = false;
         document.getElementById('nextRound').style.display = 'inline'
         document.getElementById('canvas_stop').style.display = 'inline'
@@ -269,8 +297,8 @@ function victorious() {
         rivalScore += 1;
         trackRound += 1;
         victory = "";
-        context2.font = "40px Arial";
-        context2.fillText(youLose, 245, 370);
+        document.getElementById('winLoseDraw').style.display = 'inline'
+        document.getElementById("winLoseDraw").innerHTML = "You Lose!";
         cardIsPicked = false;
         document.getElementById('nextRound').style.display = 'inline'
         document.getElementById('canvas_stop').style.display = 'inline'
@@ -280,8 +308,8 @@ function victorious() {
         drawScore += 1;
         trackRound += 1;
         victory = "";
-        context2.font = "40px Arial";
-        context2.fillText(youDraw, 245, 370);
+        document.getElementById('winLoseDraw').style.display = 'inline'
+        document.getElementById("winLoseDraw").innerHTML = "You Draw!";
         cardIsPicked = false;
         document.getElementById('nextRound').style.display = 'inline'
         document.getElementById('canvas_stop').style.display = 'inline'
@@ -309,7 +337,9 @@ function nextRound() {
     var roundNum = 0;
     document.getElementById('nextRound').style.display = 'none';
     document.getElementById('canvas_stop').style.display = 'none';
+    document.getElementById('winLoseDraw').style.display = 'none';
     if (rivalScore < trackRound || playScore < trackRound || drawScore < trackRound) {
+        context4.clearRect(0, 0, CANVAS_WDT, CANVAS_HGT);
         context2.clearRect(0, 0, CANVAS_WDT, CANVAS_HGT);
         contextR2.clearRect(0, 0, CANVAS_WDT, CANVAS_HGT);
         playerPick = "";

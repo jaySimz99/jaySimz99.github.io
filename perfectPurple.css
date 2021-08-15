@@ -113,6 +113,19 @@ h3 {
 
 }
 
+#winLoseDraw{
+    font-size: 70px;
+    position: absolute;
+    left: 28%;
+    top: 63%;
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke-width: 1.4px;
+    -webkit-text-stroke-color:#ab1cb8;
+    background: -webkit-linear-gradient(#eee,rgb(255, 242, 245),rgb(255, 219, 226),  #fea1ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 .overlay-win_state {
     background-color: rgba(145, 248, 27, 0.8);
 }
@@ -367,6 +380,13 @@ transition: 2.5s;
         left: 10%;
         top: 1%; 
     }
+
+    #winLoseDraw{
+    font-size: 59px;
+    position: absolute;
+    left: 15%;
+    top: 36.5%;
+}
 
 
 }  

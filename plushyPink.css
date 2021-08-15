@@ -122,6 +122,19 @@ h3 {
 
 }
 
+#winLoseDraw{
+    font-size: 70px;
+    position: absolute;
+    left: 28%;
+    top: 63%;
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke-width: 1.4px;
+    -webkit-text-stroke-color:#c4158f;
+    background: -webkit-linear-gradient(#eee,rgb(255, 242, 245),rgb(255, 219, 226),  #fea1ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 #scores
 {
     text-align:center;
@@ -328,6 +341,13 @@ body {
         font-size: 40px;
         left: 10%;
         top: 1%; 
+    }
+
+    #winLoseDraw{
+        font-size: 59px;
+        position: absolute;
+        left: 12%;
+        top: 36.5%;
     }
 
 }
