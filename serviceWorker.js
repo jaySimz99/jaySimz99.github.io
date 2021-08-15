@@ -6,7 +6,13 @@ const assets = [
   'perfectPurple.css',
   'styleForm.css',
   'script.js',
-  'gameplay.js'
+  'gameplay.js',
+  'rock.png',
+  'paper.png',
+  'scissors.png',
+  'load.png',
+  'star.png',
+  'starfilled.png'
 ];
 
 
