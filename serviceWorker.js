@@ -12,7 +12,9 @@ const assets = [
   'scissors.png',
   'load.png',
   'star.png',
-  'starfilled.png'
+  'starfilled.png',
+  'cardback.png',
+  'greenRock.png'
 ];
 
 
