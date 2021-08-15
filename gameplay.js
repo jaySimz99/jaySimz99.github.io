@@ -11,6 +11,11 @@ var canvas_results_rival = document.getElementById("the_canvas_results_rival");
 var contextR2 = canvas_results_rival.getContext("2d");
 var the_canvas_stars_rival = document.getElementById("the_canvas_stars_rival");
 var contextR3 = the_canvas_stars_rival.getContext("2d");
+document.getElementById("playerName").innerHTML = localStorage.getItem("playerName");
+
+if (localStorage.getItem("playerName") == ""){
+    document.getElementById("playerName").innerHTML = "You";
+}
 
 
 const CANVAS_WDT = canvas.width = 480;
@@ -320,6 +325,8 @@ function nextRound() {
     console.log("Rival Score: " + rivalScore);
     console.log("Draw Score: " + drawScore);
     console.log("Player Clicked: " + playerClicked);
+    
+    console.log(localStorage);
 
     document.getElementById("round").innerHTML = "Round " + rounds;
     document.getElementById("winMessage").innerHTML = "You Win!";

@@ -1,38 +1,31 @@
 function switchStyle(sheet) {
     document.getElementById('switchStyle').setAttribute('href', sheet);
+
 }
 
 function display() {
 
-    var changeStyleCanvas = document.getElementsByName('changeStyle');
 
     if (document.getElementById('purpleOpt').checked) {
         switchStyle('perfectPurple.css');
+        localStorage.setItem("checkboxPurple", "yes");
+        document.getElementById('purpleOpt').checked;   
     }
     if (document.getElementById('pinkOpt').checked) {
         switchStyle('plushyPink.css');
+        localStorage.setItem("checkboxPurple", "no");
+        document.getElementById('pinkOpt').checked;
     }
 
-    var playerName = document.forms["settingsForm"]["name"].value;;
-    alert("Hello " + playerName + "!");
+    window.localStorage.removeItem("player1name"); 
 
-    localStorage.setItem('player1name', 'name');
+    var playerName = document.getElementById('name').value;
+    localStorage.setItem('playerName', playerName);
 
     document.getElementById("form").style.width = "0%";
 
+    console.log(localStorage);
 }
-
-function GetGamerTag(key, elementID) {
-    var value = document.getElementById(elementID).value;
-    localStorage.setItem(key, value);
-    getItem(key);
-}
-
-function getItem(key){
-	var localStorageValue = localStorage.getItem(key);
-	document.getElementById("playerName").innerHTML = localStorageValue;
-}
-
 
 function openNav() {
     document.getElementById("form").style.width = "100%";
@@ -42,25 +35,14 @@ function closeNav() {
     document.getElementById("form").style.width = "0%";
 }
 
-var viewport_meta = document.getElementById('viewport-meta');
-
-var viewports = {
-		default: viewport_meta.getAttribute('content'),
-		small: 'width=360'
-	};
-
-var viewport_set = function() {
-		if ( screen.width < 400 )
-			viewport_meta.setAttribute( 'content', viewports.small );
-		else
-			viewport_meta.setAttribute( 'content', viewports.default );
-	}
-viewport_set();
-
-window.onresize = function() { 
-	viewport_set(); 
-}
-
+var answer = localStorage.getItem('checkboxPurple');
+    
+    if (answer == "yes") {
+        switchStyle('perfectPurple.css');
+    }else
+    {
+        switchStyle('plushyPink.css'); 
+    }
 
 
 if ('serviceWorker' in navigator) {
