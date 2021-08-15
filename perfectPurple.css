@@ -388,5 +388,73 @@ transition: 2.5s;
     top: 36.5%;
 }
 
+#play, #multiplay, #settings, #back, #nextRound,#retry, #home   {
+    border: 2px solid rgb(104, 39, 158);
+    font-family: 'Righteous', cursive;
+    color: white;
+    background-color: rgb(135, 76, 190);
+    box-shadow: 
+    inset 0 -4px 1px #659fd4,
+    inset 0 4px 1px #d86ce2;
+    transition: 0.3s;
+}
+
+
+#the_canvas {
+    background-image:
+    linear-gradient(to right, #d86ce2,rgb(135, 76, 190)); 
+}
+
+#the_canvas_rival{
+    background-image:
+    linear-gradient(to right, #9dda4e, #9dda4e,#6cc530);
+}
+
+h3 {
+     -webkit-text-fill-color: white;
+     -webkit-text-stroke-width: 1.8px;
+     -webkit-text-stroke-color:rgb(135, 76, 190);
+     background: -webkit-linear-gradient(#eee,rgb(251, 219, 255),rgb(251, 219, 255),  #e1a1ff);
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
+}
+
+h2 {
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke-width: 1.8px;
+    -webkit-text-stroke-color:rgb(135, 76, 190);
+    background: -webkit-linear-gradient(#eee,rgb(251, 219, 255),rgb(251, 219, 255),  #e1a1ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#enemyName {
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke-width: 1.8px;
+    -webkit-text-stroke-color:#5aa02c;
+    background: -webkit-linear-gradient(#eee,#d1f1bb,#d1f1bb,  #a7e47e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+body {
+    background-image:
+    radial-gradient(#e2f76b 25%, transparent 25%),
+    radial-gradient(#6debd6 25%, transparent 25%); 
+background-color: #ffffff;
+background-position: 0 0, 50px 50px;
+background-size: 100px 100px;
+transition: 2.5s;
+}
+
+#winLoseDraw{
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke-width: 1.4px;
+    -webkit-text-stroke-color:#63168f;
+    background: -webkit-linear-gradient(#eee,rgb(247, 219, 255),rgb(247, 219, 255),  #d69df7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 
 }  
