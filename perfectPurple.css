@@ -342,7 +342,7 @@ transition: 2.5s;
         position: absolute;
         padding: 8px;
         font-size: 25px;
-        top: 18%;
+        top: 16%;
         left: 43%;
     }
 
@@ -394,7 +394,7 @@ transition: 2.5s;
     color: white;
     background-color: rgb(134, 54, 209);
     box-shadow: 
-    inset 0 -4px 1px #81b9ee,
+    inset 0 -4px 1px #92caff,
     inset 0 4px 1px #d86ce2;
     transition: 0.3s;
 }
@@ -414,7 +414,7 @@ h3 {
      -webkit-text-fill-color: white;
      -webkit-text-stroke-width: 1.8px;
      -webkit-text-stroke-color:rgb(134, 54, 209);
-     background: -webkit-linear-gradient(#eee,rgb(251, 219, 255),rgb(251, 219, 255),  #e1a1ff);
+     background: -webkit-linear-gradient(#eee,rgb(200, 147, 250),rgb(200, 147, 250),  rgb(200, 147, 250));
      -webkit-background-clip: text;
      -webkit-text-fill-color: transparent;
 }
@@ -423,7 +423,7 @@ h2 {
     -webkit-text-fill-color: white;
     -webkit-text-stroke-width: 1.8px;
     -webkit-text-stroke-color:rgb(134, 54, 209);
-    background: -webkit-linear-gradient(#eee,rgb(251, 219, 255),rgb(251, 219, 255),  #e1a1ff);
+    background: -webkit-linear-gradient(#eee,rgb(200, 147, 250),rgb(200, 147, 250),  rgb(200, 147, 250));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -439,7 +439,7 @@ h2 {
 
 body {
     background-image:
-    radial-gradient(#e2f76b 25%, transparent 25%),
+    radial-gradient(#c7ff46 25%, transparent 25%),
     radial-gradient(#6debd6 25%, transparent 25%); 
 background-color: #ffffff;
 background-position: 0 0, 50px 50px;
@@ -449,9 +449,9 @@ transition: 2.5s;
 
 #winLoseDraw{
     -webkit-text-fill-color: white;
-    -webkit-text-stroke-width: 1.4px;
+    -webkit-text-stroke-width: 0px;
     -webkit-text-stroke-color:#63168f;
-    background: -webkit-linear-gradient(#eee,rgb(247, 219, 255),rgb(247, 219, 255),  #d69df7);
+    background: -webkit-linear-gradient(#eee, #eee);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
