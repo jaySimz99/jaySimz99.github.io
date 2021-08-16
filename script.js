@@ -24,6 +24,15 @@ function display() {
 
     document.getElementById("form").style.width = "0%";
 
+
+if (document.getElementById("rounds").value == "three") {
+    localStorage.setItem('rounds', "three");
+}
+else{
+    localStorage.setItem('rounds', "five");
+}
+
+
     console.log(localStorage);
 }
 

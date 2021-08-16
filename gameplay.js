@@ -21,7 +21,6 @@ if (localStorage.getItem("playerName") == ""){
     document.getElementById("playerName").innerHTML = "You";
 }
 
-
 const CANVAS_WDT = canvas.width = 480;
 const CANVAS_HGT = canvas.height = 400;
 const SPRITE_WDT = 700;
@@ -203,10 +202,22 @@ function animate() {
     context.drawImage(star, 0, 0, 700, 700, 40, 50, 200, 200);
     context.drawImage(star, 0, 0, 700, 700, 90, 50, 200, 200);
     context.drawImage(star, 0, 0, 700, 700, 140, 50, 200, 200);
+
+    if (localStorage.getItem("rounds") == "five"){
+    context.drawImage(star, 0, 0, 700, 700, 40, 10, 200, 200);
+    context.drawImage(star, 0, 0, 700, 700, 90, 10, 200, 200);
+
+    }
     //Enemy points
     contextR.drawImage(star, 0, 0, 700, 700, 75, 50, 200, 200);
     contextR.drawImage(star, 0, 0, 700, 700, 125, 50, 200, 200);
     contextR.drawImage(star, 0, 0, 700, 700, 175, 50, 200, 200);
+   
+    if (localStorage.getItem("rounds") == "five"){
+    contextR.drawImage(star, 0, 0, 700, 700, 125, 10, 200, 200);
+    contextR.drawImage(star, 0, 0, 700, 700, 175, 10, 200, 200);
+
+    }
 
 
 
@@ -229,6 +240,16 @@ function animate() {
         context3.drawImage(starF, 0, 0, 700, 700, 140, 50, 200, 200);
     }
 
+      if (playScore == 4) {
+        context3.drawImage(starF, 0, 0, 700, 700, 40, 10, 200, 200);
+    }
+
+    if (playScore == 5) {
+        context3.drawImage(starF, 0, 0, 700, 700, 90, 10, 200, 200);
+    }
+
+
+
 
     if (rivalScore == 1) {
         contextR3.drawImage(starF, 0, 0, 700, 700, 75, 50, 200, 200);
@@ -243,6 +264,17 @@ function animate() {
     if (rivalScore == 3) {
         contextR3.drawImage(starF, 0, 0, 700, 700, 175, 50, 200, 200);
     }
+
+     if (rivalScore == 4) {
+        contextR3.drawImage(starF, 0, 0, 700, 700, 175, 10, 200, 200);
+    }
+
+
+    if (rivalScore == 5) {
+        contextR3.drawImage(starF, 0, 0, 700, 700, 125, 10, 200, 200);
+    }
+
+
 }
 
 function whenCardisPicked() {
@@ -315,14 +347,29 @@ function victorious() {
         document.getElementById('canvas_stop').style.display = 'inline'
     }
 
-    if (rivalScore == 3) {
+
+    if (rivalScore == 3 && localStorage.getItem("rounds") == "three") {
         document.getElementById("form").style.width = "100%";
         document.getElementById("winMessage").innerHTML = "You Lose!";
     }
 
-    if (playScore == 3) {
+    if (playScore == 3 && localStorage.getItem("rounds") == "three") {
         document.getElementById("form").style.width = "100%";
         document.getElementById("winMessage").innerHTML = "You Win!";
+    }
+
+   
+    if (rivalScore == 5 && localStorage.getItem("rounds") == "five") {
+        document.getElementById("form").style.width = "100%";
+        document.getElementById("winMessage").innerHTML = "You Lose!";
+    }
+
+    if (playScore == 5 && localStorage.getItem("rounds") == "five") {
+        document.getElementById("form").style.width = "100%";
+        document.getElementById("winMessage").innerHTML = "You Win!";
+    
+
+
     }
 
     document.getElementById("score").innerHTML = playScore + ":" + rivalScore;
