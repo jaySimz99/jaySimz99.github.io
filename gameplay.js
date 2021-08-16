@@ -18,8 +18,14 @@ document.getElementById("playerName").innerHTML = localStorage.getItem("playerNa
 document.getElementById('winLoseDraw').style.display = 'none';
 
 if (localStorage.getItem("playerName") == ""){
-    document.getElementById("playerName").innerHTML = "You";
+    localStorage.setItem("backUpName", localStorage.getItem("backUpName"));
+    document.getElementById("playerName").innerHTML = localStorage.getItem("backUpName");
 }
+
+if (localStorage.getItem("playerName") != ""){
+    localStorage.setItem("backUpName", localStorage.getItem("playerName"));
+}
+
 
 const CANVAS_WDT = canvas.width = 480;
 const CANVAS_HGT = canvas.height = 400;

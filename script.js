@@ -17,10 +17,9 @@ function display() {
         document.getElementById('pinkOpt').checked;
     }
 
-    window.localStorage.removeItem("player1name"); 
-
     var playerName = document.getElementById('name').value;
     localStorage.setItem('playerName', playerName);
+    localStorage.setItem('backUpName', localStorage.getItem("backUpName"));
 
     document.getElementById("form").style.width = "0%";
 
