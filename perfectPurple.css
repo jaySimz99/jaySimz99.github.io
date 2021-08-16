@@ -392,9 +392,9 @@ transition: 2.5s;
     border: 2px solid rgb(104, 39, 158);
     font-family: 'Righteous', cursive;
     color: white;
-    background-color: rgb(135, 76, 190);
+    background-color: rgb(134, 54, 209);
     box-shadow: 
-    inset 0 -4px 1px #659fd4,
+    inset 0 -4px 1px #81b9ee,
     inset 0 4px 1px #d86ce2;
     transition: 0.3s;
 }
@@ -402,7 +402,7 @@ transition: 2.5s;
 
 #the_canvas {
     background-image:
-    linear-gradient(to right, #d86ce2,rgb(135, 76, 190)); 
+    linear-gradient(to right, rgb(180, 101, 255),rgb(134, 54, 209)); 
 }
 
 #the_canvas_rival{
@@ -413,7 +413,7 @@ transition: 2.5s;
 h3 {
      -webkit-text-fill-color: white;
      -webkit-text-stroke-width: 1.8px;
-     -webkit-text-stroke-color:rgb(135, 76, 190);
+     -webkit-text-stroke-color:rgb(134, 54, 209);
      background: -webkit-linear-gradient(#eee,rgb(251, 219, 255),rgb(251, 219, 255),  #e1a1ff);
      -webkit-background-clip: text;
      -webkit-text-fill-color: transparent;
@@ -422,7 +422,7 @@ h3 {
 h2 {
     -webkit-text-fill-color: white;
     -webkit-text-stroke-width: 1.8px;
-    -webkit-text-stroke-color:rgb(135, 76, 190);
+    -webkit-text-stroke-color:rgb(134, 54, 209);
     background: -webkit-linear-gradient(#eee,rgb(251, 219, 255),rgb(251, 219, 255),  #e1a1ff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -459,4 +459,3 @@ transition: 2.5s;
 
 }
 
-}
