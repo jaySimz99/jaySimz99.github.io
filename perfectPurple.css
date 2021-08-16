@@ -315,8 +315,8 @@ transition: 2.5s;
 
     #the_canvas_rival, #the_canvas_stars_rival, #the_canvas_results_rival{
         position: absolute;
-        left: 70%;
-        top: 78%;
+        left: 65%;
+        top: 80%;
         width: 190px; 
     }
 
@@ -334,7 +334,7 @@ transition: 2.5s;
     }
     #back {
         position: absolute;
-        top: 60%;
+        top: 70%;
     }
 
 
@@ -457,4 +457,6 @@ transition: 2.5s;
 }
 
 
-}  
+}
+
+}
