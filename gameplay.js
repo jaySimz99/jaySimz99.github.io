@@ -62,9 +62,14 @@ if (answer == "yes") {
     rock.src = "rock.png";  
 }
 
-
 const paper = new Image();
-paper.src = "paper.png";
+if (answer == "yes") {
+    paper.src = "purplePaper.png";
+    }
+    else{
+        paper.src = "paper.png";
+    }
+    
 
 const scissors = new Image();
 scissors.src = "scissors.png";
@@ -78,7 +83,12 @@ if (answer == "yes") {
 }
 
 const paper2 = new Image();
-paper2.src = "paper.png";
+if (answer == "yes") {
+paper2.src = "purplePaper.png";
+}
+else{
+    paper2.src = "paper.png";
+}
 
 const scissors2 = new Image();
 scissors2.src = "scissors.png";

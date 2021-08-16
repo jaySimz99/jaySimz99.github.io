@@ -296,12 +296,13 @@ body {
         font-weight: 3000;
         font-family: 'Fredoka One', cursive;
         color: white;
-        text-shadow: 0 0 6px #750066;
+        text-shadow: 0 0 6px #d816be;
         text-align: center;
+        transition: 0.6s;
     }
 
     #enemyName {
-        text-shadow: 0 0 6px #001f75;
+        text-shadow: 0 0 6px #1e50da;
     }
     #rsptitle {
         font-size: 30px; 

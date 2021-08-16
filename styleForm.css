@@ -189,3 +189,8 @@ option, select {
   inset 0 -4px 1px #a0ff88,
   inset 0 4px 1px #84ffd0;
 }
+
+@media only screen and (max-width: 500px) {
+
+  
+}

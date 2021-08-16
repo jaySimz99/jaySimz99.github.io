@@ -14,7 +14,8 @@ const assets = [
   'star.png',
   'starfilled.png',
   'cardback.png',
-  'greenRock.png'
+  'greenRock.png',
+  'purplePaper.png'
 ];
 
 
