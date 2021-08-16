@@ -63,7 +63,7 @@ h1 {
      -webkit-background-clip: text;
      -webkit-text-fill-color: transparent;
      transition: 2s;
-}
+
 }
 
 #winMessage {
@@ -136,6 +136,8 @@ h3 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+}
+
 
 #scores
 {
@@ -279,7 +281,7 @@ body {
 
     #the_canvas_rival, #the_canvas_stars_rival, #the_canvas_results_rival{
         position: absolute;
-        left: 65%;
+        left: 68%;
         top: 80%;
         width: 190px; 
     }
@@ -288,16 +290,19 @@ body {
         font-size: 50px;
     }
 
-    h1 {
+    h1, h2, h3, #enemyName, #playerName  {
         font-size: 60px; 
         word-break: break-all;
         font-weight: 3000;
         font-family: 'Fredoka One', cursive;
         color: white;
-        text-shadow: 0 0 6px #a81b95;
+        text-shadow: 0 0 6px #750066;
         text-align: center;
     }
 
+    #enemyName {
+        text-shadow: 0 0 6px #001f75;
+    }
     #rsptitle {
         font-size: 30px; 
     }
@@ -315,7 +320,17 @@ body {
         left: 43%;
     }
 
+    h2 {
+        position: absolute;
+        font-size: 50px;
+        top: -7.5%;
+        left: 25%;    
+    }
+
     #winMessage {
+        position: absolute;
+        left: 6%;
+        top: 10%;
         font-size: 70px;
     }
     
@@ -339,7 +354,7 @@ body {
     #enemyName {
         position: absolute;
         font-size: 40px;
-        left: 3%;
+        left: 2%;
         top: 80%; 
     }
 
