@@ -62,3 +62,15 @@ if ('serviceWorker' in navigator) {
       .catch(err => console.log('Error: ${err}')) 
     })
 }
+
+function openInNewTab(url, url2) {
+    window.open(url, '_blank').focus();
+    window.open(url2, '_blank').focus();
+    alert("Now press play!!!");
+   }
+
+function reset(){
+    localStorage.setItem("player1pick", "");
+    localStorage.setItem("player2pick", "");
+}
+
