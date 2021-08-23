@@ -14,6 +14,7 @@ var canvas_results_rival = document.getElementById("the_canvas_results_rival");
 var contextR2 = canvas_results_rival.getContext("2d");
 var the_canvas_stars_rival = document.getElementById("the_canvas_stars_rival");
 var contextR3 = the_canvas_stars_rival.getContext("2d");
+
 document.getElementById("playerName").innerHTML = localStorage.getItem("playerName");
 document.getElementById('winLoseDraw').style.display = 'none';
 
@@ -36,7 +37,6 @@ let speed = 0;
 const SLOW_FRAME = 6;
 var playerPick;
 var playerClicked = false;
-var computerPick;
 var cardIsPicked = false;
 var rounds = 1;
 var playScore = 0;
@@ -111,7 +111,6 @@ context.shadowColor = "rgba(80, 32, 131,0.3)";
 canvas_stars.addEventListener('mousedown', clicked);
 
 
-
 function clicked(event) {
     let rect = canvas_stars.getBoundingClientRect();//Get the boundaries of the canvas 
 
@@ -123,17 +122,20 @@ function clicked(event) {
     if (x < 107 && x > 17 && y > 92 && y < 196 && cardIsPicked == false) { //coordinates of the cards on the canvas 
         playerPick = "rock";//picked vairable changes 
         cardIsPicked = true;//Detects of a card has been picked 
+        document.getElementById('canvas_stop').style.display = 'inline';
     }
 
 
     if (x < 202 && x > 112 && y > 92 && y < 196 && cardIsPicked == false) {
         playerPick = "paper";
         cardIsPicked = true;
+        document.getElementById('canvas_stop').style.display = 'inline';
     }
 
     if (x < 297 && x > 207 && y > 92 && y < 196 && cardIsPicked == false) {
         playerPick = "scissors";
         cardIsPicked = true;
+        document.getElementById('canvas_stop').style.display = 'inline';
     }
 
 }
@@ -144,29 +146,30 @@ else {
     if (x < 160 && x > 32 && y > 110 && y < 292 && cardIsPicked == false) { //coordinates of the cards on the canvas 
         playerPick = "rock";//picked vairable changes 
         cardIsPicked = true;//Detects of a card has been picked 
+        document.getElementById('canvas_stop').style.display = 'inline';
     }
 
 
     if (x < 300 && x > 172 && y > 110 && y < 292 && cardIsPicked == false) {
         playerPick = "paper";
         cardIsPicked = true;
+        document.getElementById('canvas_stop').style.display = 'inline';
     }
 
     if (x < 440 && x > 312 && y > 110 && y < 292 && cardIsPicked == false) {
         playerPick = "scissors";
         cardIsPicked = true;
+        document.getElementById('canvas_stop').style.display = 'inline';
     }
 }
 
-localStorage.setItem("player1pick", playerPick);
+localStorage.setItem("player1pick", playerPick);//Store the player 1 pick in local storage
 
 }
 
 
 window.addEventListener('storage', () => {
-    // When local storage changes, dump the list to
-    // the console.
-    console.log((window.localStorage.getItem("Player 2:" + 'player2pick')));
+    console.log("player 2: " + (window.localStorage.getItem('player2pick')));
   });
 
 
@@ -181,19 +184,16 @@ function animate() {
     if (playerPick == "rock"){
         context4.drawImage(cardback, 0, 0, 700, 700, 140, 100, 200, 200);
         context4.drawImage(cardback, 0, 0, 700, 700, 280, 100, 200, 200);
-                document.getElementById('canvas_stop').style.display = 'inline';
     }
 
     if (playerPick == "paper"){
         context4.drawImage(cardback, 0, 0, 700, 700, 0, 100, 200, 200);
         context4.drawImage(cardback, 0, 0, 700, 700, 280, 100, 200, 200);
-                document.getElementById('canvas_stop').style.display = 'inline';
     }
 
     if (playerPick == "scissors"){
         context4.drawImage(cardback, 0, 0, 700, 700, 0, 100, 200, 200);
         context4.drawImage(cardback, 0, 0, 700, 700, 140, 100, 200, 200);
-            document.getElementById('canvas_stop').style.display = 'inline';
     }
 
     //Player points
@@ -279,11 +279,12 @@ function whenCardisPicked() {
     if (localStorage.getItem("player2pick") == "rock" && cardIsPicked == true)//shows the card that the computer has picked depending on computer variable 
     { contextR2.drawImage(rock2, framex * SPRITE_WDT, 0, 700, 700, 55, 100, 200, 200); }
 
-    if (localStorage.getItem("player2pick") == "paper" && cardIsPicked == true) { contextR2.drawImage(paper2, framex * SPRITE_WDT, 0, 700, 700, 55, 100, 200, 200); }
+    if (localStorage.getItem("player2pick") == "paper" && cardIsPicked == true) 
+    { contextR2.drawImage(paper2, framex * SPRITE_WDT, 0, 700, 700, 55, 100, 200, 200); }
 
-    if (localStorage.getItem("player2pick") == "scissors" && cardIsPicked == true) { contextR2.drawImage(scissors2, framex * SPRITE_WDT, 0, 700, 700, 55, 100, 200, 200); }
+    if (localStorage.getItem("player2pick") == "scissors" && cardIsPicked == true) 
+    { contextR2.drawImage(scissors2, framex * SPRITE_WDT, 0, 700, 700, 55, 100, 200, 200); }
     
-
     if (playerPick === "rock" && localStorage.getItem("player2pick") === "scissors" ||
         playerPick === "scissors" && localStorage.getItem("player2pick") === "paper" ||
         playerPick === "paper" && localStorage.getItem("player2pick")  === "rock")//Winning conditions 
@@ -311,60 +312,70 @@ function whenCardisPicked() {
 function victorious() {
 
 
-    if (victory == "Yes") {
+    if (victory == "Yes" && cardIsPicked == true) {
         document.getElementById('winLoseDraw').style.display = 'inline'
         document.getElementById("winLoseDraw").innerHTML = "You Win!";
         cardIsPicked = false;
-        document.getElementById('nextRound').style.display = 'inline'
-        document.getElementById('canvas_stop').style.display = 'inline'
+        document.getElementById('nextRound').style.display = 'inline';
+        document.getElementById('canvas_stop').style.display = 'inline';
+        playScore += 1;
     }
 
-    if (victory == "No") {
+    if (victory == "No" && cardIsPicked == true) {
         document.getElementById('winLoseDraw').style.display = 'inline'
         document.getElementById("winLoseDraw").innerHTML = "You Lose!";
         cardIsPicked = false;
-        document.getElementById('nextRound').style.display = 'inline'
-        document.getElementById('canvas_stop').style.display = 'inline'
+        document.getElementById('nextRound').style.display = 'inline';
+        document.getElementById('canvas_stop').style.display = 'inline';
+        rivalScore += 1;
+        
     }
 
-    if (victory == "Draw") {
+    if (victory == "Draw"&& cardIsPicked == true ) {
         document.getElementById('winLoseDraw').style.display = 'inline'
         document.getElementById("winLoseDraw").innerHTML = "You Draw!";
         cardIsPicked = false;
-        document.getElementById('nextRound').style.display = 'inline'
-        document.getElementById('canvas_stop').style.display = 'inline'
+        document.getElementById('nextRound').style.display = 'inline';
+        document.getElementById('canvas_stop').style.display = 'inline';
     }
 
-}
+
+    localStorage.setItem("gameOver", "No");
 
 
     if (rivalScore == 3 && localStorage.getItem("rounds") == "three") {
         document.getElementById("form").style.width = "100%";
         document.getElementById("winMessage").innerHTML = "You Lose!";
+        localStorage.setItem("gameOver", "yes");
     }
 
     if (playScore == 3 && localStorage.getItem("rounds") == "three") {
         document.getElementById("form").style.width = "100%";
         document.getElementById("winMessage").innerHTML = "You Win!";
+        localStorage.setItem("gameOver", "yes");
     }
 
    
     if (rivalScore == 5 && localStorage.getItem("rounds") == "five") {
         document.getElementById("form").style.width = "100%";
         document.getElementById("winMessage").innerHTML = "You Lose!";
+        localStorage.setItem("gameOver", "yes");
     }
 
     if (playScore == 5 && localStorage.getItem("rounds") == "five") {
         document.getElementById("form").style.width = "100%";
         document.getElementById("winMessage").innerHTML = "You Win!";
-    
+        localStorage.setItem("gameOver", "yes");
 
-
-
-
+    }
 
 
     document.getElementById("score").innerHTML = playScore + ":" + rivalScore;
+
+    if(localStorage.getItem("gameOver") == "yes"){
+        document.getElementById("form").style.width = "100%";
+        localStorage.setItem("gameOver", "no"); 
+    }
 
 }
 
@@ -373,26 +384,14 @@ document.getElementById('nextRound').style.display = 'none';
 document.getElementById('canvas_stop').style.display = 'none';
 
 
+
 function nextRound() {
 
+    cardIsPicked = "";
     rounds++;
-
-
-    
-    if (victory == "Yes") {
-        playScore += 1;
-    }
-
-    if (victory == "No") {
-        rivalScore += 1;
-    }
-
-    if (victory == "draw") {
-        drawScore += 1;
-    }
-
     victory = "";
-
+    playerPick = "";
+    player2pick ="";
     localStorage.setItem("player1pick", "");
     localStorage.setItem("player2pick", "");
     document.getElementById('nextRound').style.display = 'none';

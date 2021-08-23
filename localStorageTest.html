@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORM DATA</title>
+    <style>
+        *{ box-sizing: border-box; }
+        html, body{ margin: 0; padding: 0; }
+        .container{
+            margin: 10px 50px;
+        }
+        .form-group{
+            margin: 10px;
+        }
+        input{
+            width: 100%;
+            border: solid 1px #eee;
+            padding: 15px 10px;
+        }
+        button{
+            width: 200px;
+            padding: 15px;
+            margin-left: 250px;
+            background: #fff;
+            color: dodgerblue;
+            border: solid 1px dodgerblue;
+            cursor: pointer;
+            transition:  all .38s ease-in-out;
+        }
+        button:hover{
+            background: dodgerblue;
+            color: #fff;
+        }
+        table tr td{
+            border: solid 1px #eee;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>SIGNUP FORM</h2>
+        <form role="form" onsubmit="signUp(event);">
+            <div class="form-group">
+                <input type="text" name="fname" id="fname" placeholder="First Name" required>
+            </div>
+            <div class="form-group">
+                <input type="text" name="lname" id="lname" placeholder="Last Name" required>
+            </div>
+            <div class="form-group">
+                <input type="email" name="email" id="email" placeholder="Email Address" required>
+            </div>
+            <div class="form-group">
+                <input type="password" name="pwd" id="pwd" placeholder="Password" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Sign Up</button>
+            </div>
+        </form>
+
+        <h2>MY INFO</h2>
+        <div id="output">
+            <table>
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email Address</th>
+                        <th>Password</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- DISPLAY USERS DATA -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        const signUp = e => {
+            let formData = JSON.parse(localStorage.getItem('formData')) || [];
+            let exist = formData.length && 
+            JSON.parse(localStorage.getItem('formData')).some(data => data.fname.toLowerCase() == document.getElementById('fname').value.toLowerCase() && data.lname.toLowerCase() == document.getElementById('lname').value.toLowerCase());
+            if(!exist){
+                formData.push({
+                    fname: document.getElementById('fname').value,
+                    lname: document.getElementById('lname').value,
+                    email: document.getElementById('email').value,
+                    pwd: document.getElementById('pwd').value
+                });
+                localStorage.setItem('formData', JSON.stringify(formData));
+                // console.log(localStorage.getItem('formData'));
+                dispData();
+                document.querySelector('form').reset();
+                document.getElementById('fname').focus();
+            }
+            else{
+                alert("Ooopppssss... Duplicate found!!!\nYou have already sigjned up");
+            }
+            e.preventDefault();
+        }
+        function dispData(){
+            console.log(localStorage.getItem('formData'));
+            if(localStorage.getItem('formData')){
+                var output = document.querySelector('tbody');
+                output.innerHTML = "";
+                JSON.parse(localStorage.getItem('formData')).forEach(data => {
+                    output.innerHTML += `
+                            <tr>
+                                <td>${data.fname}</td>
+                                <td>${data.lname}</td>
+                                <td>${data.email}</td>
+                                <td>${data.pwd}</td>
+                            </tr>
+                    `;
+                });                
+            }
+        }
+        dispData();
+
+        
+    if (x < 160 && x > 32 && y > 110 && y < 292 && cardIsPicked == false) { //coordinates of the cards on the canvas 
+        playerPick = "rock";//picked vairable changes 
+        cardIsPicked = true;//Detects of a card has been picked 
+    }
+
+
+    if (x < 300 && x > 172 && y > 110 && y < 292 && cardIsPicked == false) {
+        playerPick = "paper";
+        cardIsPicked = true;
+    }
+
+    if (x < 440 && x > 312 && y > 110 && y < 292 && cardIsPicked == false) {
+        playerPick = "scissors";
+        cardIsPicked = true;
+    }
+
+   
+   
+    if (x < 90 && x > 17 && y > 62 && y < 166 && cardIsPicked == false && vWidth > 400) { //coordinates of the cards on the canvas 
+        playerPick = "rock";//picked vairable changes 
+        cardIsPicked = true;//Detects of a card has been picked 
+    }
+
+
+    if (x < 172 && x > 97 && y > 62 && y < 166 && cardIsPicked == false && vWidth > 400) {
+        playerPick = "paper";
+        cardIsPicked = true;
+    }
+
+    if (x < 440 && x > 250 && y > 62 && y < 166 && cardIsPicked == false && vWidth > 400) {
+        playerPick = "scissors";
+        cardIsPicked = true;
+    }
+    </script>
+</body>
+</html>

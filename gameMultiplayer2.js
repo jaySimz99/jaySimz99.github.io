@@ -122,17 +122,20 @@ function clicked(event) {
     if (x < 107 && x > 17 && y > 92 && y < 196 && cardIsPicked == false) { //coordinates of the cards on the canvas 
         player2pick = "rock";//picked vairable changes 
         cardIsPicked = true;//Detects of a card has been picked 
+        document.getElementById('canvas_stop').style.display = 'inline';
     }
 
 
     if (x < 202 && x > 112 && y > 92 && y < 196 && cardIsPicked == false) {
         player2pick = "paper";
         cardIsPicked = true;
+        document.getElementById('canvas_stop').style.display = 'inline';
     }
 
     if (x < 297 && x > 207 && y > 92 && y < 196 && cardIsPicked == false) {
         player2pick = "scissors";
         cardIsPicked = true;
+        document.getElementById('canvas_stop').style.display = 'inline';
     }
 
 }
@@ -166,7 +169,7 @@ localStorage.setItem("player2pick", player2pick);//Store the player 2 pick in lo
 
 
 window.addEventListener('storage', () => {//detect local storage changes 
-    console.log((window.localStorage.getItem("Player 1:" +'player1pick')));
+    console.log("player 1: " + (window.localStorage.getItem('player1pick')));
   });
 
 
@@ -276,9 +279,11 @@ function whenCardisPicked() {
     if (localStorage.getItem("player1pick") == "rock" && cardIsPicked == true)//shows the card that the computer has picked depending on computer variable 
     { contextR2.drawImage(rock2, framex * SPRITE_WDT, 0, 700, 700, 55, 100, 200, 200); }
 
-    if (localStorage.getItem("player1pick") == "paper" && cardIsPicked == true) { contextR2.drawImage(paper2, framex * SPRITE_WDT, 0, 700, 700, 55, 100, 200, 200); }
+    if (localStorage.getItem("player1pick") == "paper" && cardIsPicked == true) 
+    { contextR2.drawImage(paper2, framex * SPRITE_WDT, 0, 700, 700, 55, 100, 200, 200); }
 
-    if (localStorage.getItem("player1pick") == "scissors" && cardIsPicked == true) { contextR2.drawImage(scissors2, framex * SPRITE_WDT, 0, 700, 700, 55, 100, 200, 200); }
+    if (localStorage.getItem("player1pick") == "scissors" && cardIsPicked == true) 
+    { contextR2.drawImage(scissors2, framex * SPRITE_WDT, 0, 700, 700, 55, 100, 200, 200); }
 
     if (player2pick === "rock" && localStorage.getItem("player1pick") === "scissors" ||
         player2pick === "scissors" && localStorage.getItem("player1pick") === "paper" ||
@@ -308,60 +313,68 @@ function whenCardisPicked() {
 function victorious() {
 
 
-    if (victory == "Yes") {
+    if (victory == "Yes"&& cardIsPicked == true ) {
         document.getElementById('winLoseDraw').style.display = 'inline'
         document.getElementById("winLoseDraw").innerHTML = "You Win!";
         cardIsPicked = false;
         document.getElementById('nextRound').style.display = 'inline'
         document.getElementById('canvas_stop').style.display = 'inline'
+        playScore += 1;
     }
 
-    if (victory == "No") {
+    if (victory == "No" && cardIsPicked == true) {
         document.getElementById('winLoseDraw').style.display = 'inline'
         document.getElementById("winLoseDraw").innerHTML = "You Lose!";
         cardIsPicked = false;
-        document.getElementById('nextRound').style.display = 'inline'
-        document.getElementById('canvas_stop').style.display = 'inline'
+        document.getElementById('nextRound').style.display = 'inline';
+        document.getElementById('canvas_stop').style.display = 'inline';
+        rivalScore += 1;
     }
 
-    if (victory == "Draw") {
+    if (victory == "Draw" && cardIsPicked == true) {
         document.getElementById('winLoseDraw').style.display = 'inline'
         document.getElementById("winLoseDraw").innerHTML = "You Draw!";
         cardIsPicked = false;
-        document.getElementById('nextRound').style.display = 'inline'
-        document.getElementById('canvas_stop').style.display = 'inline'
+        document.getElementById('nextRound').style.display = 'inline';
+        document.getElementById('canvas_stop').style.display = 'inline';
     }
 
-    
+    localStorage.setItem("gameOver", "No");
 
 
     if (rivalScore == 3 && localStorage.getItem("rounds") == "three") {
         document.getElementById("form").style.width = "100%";
         document.getElementById("winMessage").innerHTML = "You Lose!";
+        localStorage.setItem("gameOver", "yes");
     }
 
     if (playScore == 3 && localStorage.getItem("rounds") == "three") {
         document.getElementById("form").style.width = "100%";
         document.getElementById("winMessage").innerHTML = "You Win!";
+        localStorage.setItem("gameOver", "yes");
     }
 
    
     if (rivalScore == 5 && localStorage.getItem("rounds") == "five") {
         document.getElementById("form").style.width = "100%";
         document.getElementById("winMessage").innerHTML = "You Lose!";
+        localStorage.setItem("gameOver", "yes");
     }
 
     if (playScore == 5 && localStorage.getItem("rounds") == "five") {
         document.getElementById("form").style.width = "100%";
-        document.getElementById("winMessage").innerHTML = "You Win!";
-    
-
-
-  
+        document.getElementById("winMessage").innerHTML = "You Win!"; 
+        localStorage.setItem("gameOver", "yes");
 
 }
 
     document.getElementById("score").innerHTML = playScore + ":" + rivalScore;
+
+    if(localStorage.getItem("gameOver") == "yes"){
+        document.getElementById("form").style.width = "100%"; 
+        localStorage.setItem("gameOver", "no");
+    }
+
 
 }
 
@@ -370,26 +383,17 @@ function victorious() {
 document.getElementById('nextRound').style.display = 'none';
 document.getElementById('canvas_stop').style.display = 'none';
 
+
 function nextRound() {
+    
+    
+    cardIsPicked = "";
     rounds++;
-
-    if (victory == "Yes") {
-        playScore += 1;
-    }
-
-    if (victory == "No") {
-        rivalScore += 1;
-    }
-
-    if (victory == "draw") {
-        drawScore += 1;
-    }
-
     victory = "";
-
-    var roundNum = 0;
-    localStorage.setItem("player1pick", "");
+    playerPick = "";
+    player2pick ="";
     localStorage.setItem("player2pick", "");
+    localStorage.setItem("player1pick", "");
     document.getElementById('nextRound').style.display = 'none';
     document.getElementById('canvas_stop').style.display = 'none';
     document.getElementById('winLoseDraw').style.display = 'none';
