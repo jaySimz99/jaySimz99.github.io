@@ -26,7 +26,6 @@ if (localStorage.getItem("playerName") != ""){
     localStorage.setItem("backUpName", localStorage.getItem("playerName"));
 }
 
-
 const CANVAS_WDT = canvas.width = 480;
 const CANVAS_HGT = canvas.height = 400;
 const SPRITE_WDT = 700;
@@ -367,22 +366,34 @@ function victorious() {
     if (rivalScore == 3 && localStorage.getItem("rounds") == "three") {
         document.getElementById("form").style.width = "100%";
         document.getElementById("winMessage").innerHTML = "You Lose!";
+        
+    localStorage.setItem("player1Pick", "");
+    localStorage.setItem("player1Pick", "");
     }
 
     if (playScore == 3 && localStorage.getItem("rounds") == "three") {
         document.getElementById("form").style.width = "100%";
         document.getElementById("winMessage").innerHTML = "You Win!";
+        
+    localStorage.setItem("player1Pick", "");
+    localStorage.setItem("player1Pick", "");
     }
 
    
     if (rivalScore == 5 && localStorage.getItem("rounds") == "five") {
         document.getElementById("form").style.width = "100%";
         document.getElementById("winMessage").innerHTML = "You Lose!";
+        
+    localStorage.setItem("player1Pick", "");
+    localStorage.setItem("player1Pick", "");
     }
 
     if (playScore == 5 && localStorage.getItem("rounds") == "five") {
         document.getElementById("form").style.width = "100%";
         document.getElementById("winMessage").innerHTML = "You Win!";
+        
+    localStorage.setItem("player1Pick", "");
+    localStorage.setItem("player1Pick", "");
     
 
 

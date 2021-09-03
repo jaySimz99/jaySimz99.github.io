@@ -5,7 +5,8 @@ function switchStyle(sheet) {
 
 function display() {
 
-
+    var playerName = document.getElementById('name').value;
+    localStorage.setItem('playerName', playerName);
     if (document.getElementById('purpleOpt').checked) {
         switchStyle('perfectPurple.css');
         localStorage.setItem("checkboxPurple", "yes");
@@ -17,8 +18,6 @@ function display() {
         document.getElementById('pinkOpt').checked;
     }
 
-    var playerName = document.getElementById('name').value;
-    localStorage.setItem('playerName', playerName);
     localStorage.setItem('backUpName', localStorage.getItem("backUpName"));
 
     document.getElementById("form").style.width = "0%";
@@ -64,12 +63,30 @@ if ('serviceWorker' in navigator) {
 }
 
 function openInNewTab(url, url2) {
-    window.open(url, '_blank').focus();
-    window.open(url2, '_blank').focus();
+    if (localStorage.getItem("playerName") == ""){
+        alert("No name detected! Press settings and add a name.");
+    }
+    else{
+          window.open(url, '_blank').focus();
+        window.open(url2, '_blank').focus();
+    }
+
+    localStorage.removeItem("player1pick");
+    localStorage.removeItem("player2pick");
+    
    }
 
-function reset(){
-    localStorage.setItem("player1pick", "");
-    localStorage.setItem("player2pick", "");
-}
+   function openInNewTab2(url) {
+    if (localStorage.getItem("playerName") == ""){
+        alert("No name detected! Press settings and add a name.");
+    }
+    else{
+          window.open(url, '_blank').focus();
+    }
+    
+   }
 
+   window.addEventListener("load", function(){
+    localStorage.removeItem("player1pick");
+    localStorage.removeItem("player2pick");
+});

@@ -36,8 +36,9 @@ let framex = 0;
 let speed = 0;
 const SLOW_FRAME = 6;
 var player2pick;
+var player1Pick;
 var playerClicked = false;
-var cardIsPicked = false;
+var cardisPicked2 = false;
 var rounds = 1;
 var playScore = 0;
 var rivalScore = 0;
@@ -119,22 +120,22 @@ function clicked(event) {
 
     if ( screen.width < 400 ) {
 
-    if (x < 107 && x > 17 && y > 92 && y < 196 && cardIsPicked == false) { //coordinates of the cards on the canvas 
+    if (x < 107 && x > 17 && y > 92 && y < 196 && cardisPicked2 == false) { //coordinates of the cards on the canvas 
         player2pick = "rock";//picked vairable changes 
-        cardIsPicked = true;//Detects of a card has been picked 
+        cardisPicked2 = true;//Detects of a card has been picked 
         document.getElementById('canvas_stop').style.display = 'inline';
     }
 
 
-    if (x < 202 && x > 112 && y > 92 && y < 196 && cardIsPicked == false) {
+    if (x < 202 && x > 112 && y > 92 && y < 196 && cardisPicked2 == false) {
         player2pick = "paper";
-        cardIsPicked = true;
+        cardisPicked2 = true;
         document.getElementById('canvas_stop').style.display = 'inline';
     }
 
-    if (x < 297 && x > 207 && y > 92 && y < 196 && cardIsPicked == false) {
+    if (x < 297 && x > 207 && y > 92 && y < 196 && cardisPicked2 == false) {
         player2pick = "scissors";
-        cardIsPicked = true;
+        cardisPicked2 = true;
         document.getElementById('canvas_stop').style.display = 'inline';
     }
 
@@ -143,27 +144,27 @@ function clicked(event) {
 else {
 
          
-    if (x < 160 && x > 32 && y > 110 && y < 292 && cardIsPicked == false) { //coordinates of the cards on the canvas 
+    if (x < 160 && x > 32 && y > 110 && y < 292 && cardisPicked2 == false) { //coordinates of the cards on the canvas 
         player2pick = "rock";//picked vairable changes 
-        cardIsPicked = true;//Detects of a card has been picked 
+        cardisPicked2 = true;//Detects of a card has been picked 
         document.getElementById('canvas_stop').style.display = 'inline';
     }
 
 
-    if (x < 300 && x > 172 && y > 110 && y < 292 && cardIsPicked == false) {
+    if (x < 300 && x > 172 && y > 110 && y < 292 && cardisPicked2 == false) {
         player2pick = "paper";
-        cardIsPicked = true;
+        cardisPicked2 = true;
         document.getElementById('canvas_stop').style.display = 'inline';
     }
 
-    if (x < 440 && x > 312 && y > 110 && y < 292 && cardIsPicked == false) {
+    if (x < 440 && x > 312 && y > 110 && y < 292 && cardisPicked2 == false) {
         player2pick = "scissors";
-        cardIsPicked = true;
+        cardisPicked2 = true;
         document.getElementById('canvas_stop').style.display = 'inline';
     }
 }
-
-localStorage.setItem("player2pick", player2pick);//Store the player 2 pick in local storage
+//Store the player 2 pick in local storage
+localStorage.setItem("player2pick", player2pick);
 
 }
 
@@ -184,16 +185,19 @@ function animate() {
     if (player2pick == "rock"){
         context4.drawImage(cardback, 0, 0, 700, 700, 140, 100, 200, 200);
         context4.drawImage(cardback, 0, 0, 700, 700, 280, 100, 200, 200);
+        console.log("Opponent Pick: " + player1Pick);
     }
 
     if (player2pick == "paper"){
         context4.drawImage(cardback, 0, 0, 700, 700, 0, 100, 200, 200);
         context4.drawImage(cardback, 0, 0, 700, 700, 280, 100, 200, 200);
+        console.log("Opponent Pick: " + player1Pick);
     }
 
     if (player2pick == "scissors"){
         context4.drawImage(cardback, 0, 0, 700, 700, 0, 100, 200, 200);
         context4.drawImage(cardback, 0, 0, 700, 700, 140, 100, 200, 200);
+        console.log("Opponent Pick: " + player1Pick);
     }
 
     //Player points
@@ -275,33 +279,40 @@ function animate() {
 
 }
 
-function whenCardisPicked() {
-    if (localStorage.getItem("player1pick") == "rock" && cardIsPicked == true)//shows the card that the computer has picked depending on computer variable 
+
+
+function whencardisPicked2() {
+
+    if (localStorage.getItem("player1pick") != ""){
+    player1Pick = localStorage.getItem("player1pick");
+    }
+
+    if (player1Pick == "rock" && cardisPicked2 == true)//shows the card that the computer has picked depending on computer variable 
     { contextR2.drawImage(rock2, framex * SPRITE_WDT, 0, 700, 700, 55, 100, 200, 200); }
 
-    if (localStorage.getItem("player1pick") == "paper" && cardIsPicked == true) 
+    if (player1Pick == "paper" && cardisPicked2 == true) 
     { contextR2.drawImage(paper2, framex * SPRITE_WDT, 0, 700, 700, 55, 100, 200, 200); }
 
-    if (localStorage.getItem("player1pick") == "scissors" && cardIsPicked == true) 
+    if (player1Pick == "scissors" && cardisPicked2 == true) 
     { contextR2.drawImage(scissors2, framex * SPRITE_WDT, 0, 700, 700, 55, 100, 200, 200); }
 
-    if (player2pick === "rock" && localStorage.getItem("player1pick") === "scissors" ||
-        player2pick === "scissors" && localStorage.getItem("player1pick") === "paper" ||
-        player2pick === "paper" && localStorage.getItem("player1pick")  === "rock")//Winning conditions 
+    if (player2pick === "rock" &&  player1Pick  === "scissors" ||
+        player2pick === "scissors" &&  player1Pick  === "paper" ||
+        player2pick === "paper" &&  player1Pick   === "rock")//Winning conditions 
     {
         victory = "Yes";
     }
 
-    if (player2pick === "scissors" && localStorage.getItem("player1pick")  === "rock" ||
-        player2pick === "paper" && localStorage.getItem("player1pick")  === "scissors" ||
-        player2pick === "rock" && localStorage.getItem("player1pick")  === "paper")//losing conditions 
+    if (player2pick === "scissors" &&  player1Pick   === "rock" ||
+        player2pick === "paper" &&  player1Pick   === "scissors" ||
+        player2pick === "rock" &&  player1Pick   === "paper")//losing conditions 
     {
         victory = "No";
     }
 
-    if (player2pick === "scissors" && localStorage.getItem("player1pick")  === "scissors" ||
-        player2pick === "paper" && localStorage.getItem("player1pick")  === "paper" ||
-        player2pick === "rock" && localStorage.getItem("player1pick")  === "rock")//draw conditions 
+    if (player2pick === "scissors" &&  player1Pick   === "scissors" ||
+        player2pick === "paper" &&  player1Pick  === "paper" ||
+        player2pick === "rock" &&  player1Pick  === "rock")//draw conditions 
     {
         //Draws the result on the screen 
         victory = "Draw";
@@ -313,39 +324,47 @@ function whenCardisPicked() {
 function victorious() {
 
 
-    if (victory == "Yes"&& cardIsPicked == true ) {
+    if (victory == "Yes"&& cardisPicked2 == true ) {
+        console.log(localStorage);
         document.getElementById('winLoseDraw').style.display = 'inline'
         document.getElementById("winLoseDraw").innerHTML = "You Win!";
-        cardIsPicked = false;
+        cardisPicked2 = false;
         document.getElementById('nextRound').style.display = 'inline'
         document.getElementById('canvas_stop').style.display = 'inline'
         playScore += 1;
+        console.log("Opponent Pick: " + player1Pick);
     }
 
-    if (victory == "No" && cardIsPicked == true) {
+    if (victory == "No" && cardisPicked2 == true) {
+        console.log(localStorage);
         document.getElementById('winLoseDraw').style.display = 'inline'
         document.getElementById("winLoseDraw").innerHTML = "You Lose!";
-        cardIsPicked = false;
+        cardisPicked2 = false;
         document.getElementById('nextRound').style.display = 'inline';
         document.getElementById('canvas_stop').style.display = 'inline';
         rivalScore += 1;
+        console.log("Opponent Pick: " + player1Pick);
     }
 
-    if (victory == "Draw" && cardIsPicked == true) {
+    if (victory == "Draw" && cardisPicked2 == true) {
+        console.log(localStorage);
         document.getElementById('winLoseDraw').style.display = 'inline'
         document.getElementById("winLoseDraw").innerHTML = "You Draw!";
-        cardIsPicked = false;
+        cardisPicked2 = false;
         document.getElementById('nextRound').style.display = 'inline';
         document.getElementById('canvas_stop').style.display = 'inline';
+        console.log("Opponent Pick: " + player1Pick);
     }
 
-    localStorage.setItem("gameOver", "No");
 
 
     if (rivalScore == 3 && localStorage.getItem("rounds") == "three") {
         document.getElementById("form").style.width = "100%";
         document.getElementById("winMessage").innerHTML = "You Lose!";
         localStorage.setItem("gameOver", "yes");
+        
+    localStorage.setItem("player1Pick", "");
+    localStorage.setItem("player1Pick", "");
     }
 
     if (playScore == 3 && localStorage.getItem("rounds") == "three") {
@@ -383,17 +402,14 @@ function victorious() {
 document.getElementById('nextRound').style.display = 'none';
 document.getElementById('canvas_stop').style.display = 'none';
 
-
 function nextRound() {
-    
-    
-    cardIsPicked = "";
+    cardIsPicked2 = "";
+
     rounds++;
     victory = "";
-    playerPick = "";
-    player2pick ="";
-    localStorage.setItem("player2pick", "");
-    localStorage.setItem("player1pick", "");
+    player2pick = "";
+    player1Pick = "";
+    localStorage.setItem("player1pick", player2pick);
     document.getElementById('nextRound').style.display = 'none';
     document.getElementById('canvas_stop').style.display = 'none';
     document.getElementById('winLoseDraw').style.display = 'none';
@@ -407,18 +423,10 @@ function nextRound() {
     document.getElementById("winMessage").innerHTML = "You Win!";
 }
 
-//Ideas:
-//Move loading card to a location off the canvas, make all the texts variables so you can replace them with ""
-
-//This is the code I'll use to reload the page later
-//location.reload();
-//return false;
-//The end of the code after I figure out how to develop a gameloop
-
 
 function gameloop() {
     animate();
-    whenCardisPicked();
+    whencardisPicked2();
     victorious();
     window.requestAnimationFrame(gameloop);
 }
