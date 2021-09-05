@@ -3,24 +3,29 @@ function switchStyle(sheet) {
 
 }
 
-function display() {
+if(localStorage.getItem("playerName") == ""){
+var playerName = document.getElementById('name').value;
+localStorage.setItem('playerName', playerName);
+}
 
+//Function to change the display of the game
+function display() {
     var playerName = document.getElementById('name').value;
     localStorage.setItem('playerName', playerName);
-    if (document.getElementById('purpleOpt').checked) {
+    if (document.getElementById('purpleOpt').checked) {//checks if the purple option is checked and switches style if it is
         switchStyle('perfectPurple.css');
         localStorage.setItem("checkboxPurple", "yes");
         document.getElementById('purpleOpt').checked;   
     }
-    if (document.getElementById('pinkOpt').checked) {
+    if (document.getElementById('pinkOpt').checked) {//checks if the pink option is checked and switches style if it is
         switchStyle('plushyPink.css');
         localStorage.setItem("checkboxPurple", "no");
         document.getElementById('pinkOpt').checked;
     }
 
-    localStorage.setItem('backUpName', localStorage.getItem("backUpName"));
+    localStorage.setItem('backUpName', localStorage.getItem("backUpName"));//a backupName if the user doesn't add a name when they save settings
 
-    document.getElementById("form").style.width = "0%";
+    document.getElementById("form").style.width = "0%";//form is invisible
 
 
 if (document.getElementById("rounds").value == "three") {
@@ -30,16 +35,14 @@ else{
     localStorage.setItem('rounds', "five");
 }
 
-
-    console.log(localStorage);
 }
 
 function openNav() {
-    document.getElementById("form").style.width = "100%";
+    document.getElementById("form").style.width = "100%";//opens form 
 }
 
 function closeNav() {
-    document.getElementById("form").style.width = "0%";
+    document.getElementById("form").style.width = "0%";//closes form
 }
 
 var answer = localStorage.getItem('checkboxPurple');
@@ -48,7 +51,7 @@ var answer = localStorage.getItem('checkboxPurple');
         switchStyle('perfectPurple.css');
     }else
     {
-        switchStyle('plushyPink.css'); 
+        switchStyle('plushyPink.css'); //remembers the color option
     }
 
 
@@ -59,10 +62,10 @@ if ('serviceWorker' in navigator) {
       .register('/serviceWorker.js')
       .then(reg => console.log('service worker registered'))
       .catch(err => console.log('Error: ${err}')) 
-    })
+    })//setting up the service worker
 }
 
-function openInNewTab(url, url2) {
+function openInNewTab(url, url2) {//opens 2 new tabs for multiplayer if a name is present 
     if (localStorage.getItem("playerName") == ""){
         alert("No name detected! Press settings and add a name.");
     }
@@ -76,7 +79,7 @@ function openInNewTab(url, url2) {
     
    }
 
-   function openInNewTab2(url) {
+   function openInNewTab2(url) {//opens a tab for single player if a name is present
     if (localStorage.getItem("playerName") == ""){
         alert("No name detected! Press settings and add a name.");
     }
@@ -86,7 +89,8 @@ function openInNewTab(url, url2) {
     
    }
 
-   window.addEventListener("load", function(){
+   window.addEventListener("load", function(){//removes both players picks when the multiplayer game is loaded
     localStorage.removeItem("player1pick");
     localStorage.removeItem("player2pick");
 });
+

@@ -1,3 +1,5 @@
+//Both the scripts for player 1 and 2 are mostly identical save for the names of a few variables
+
 var canvas = document.getElementById("the_canvas");
 var context = canvas.getContext("2d");
 var canvas_results = document.getElementById("the_canvas_results");
@@ -30,7 +32,7 @@ if (localStorage.getItem("playerName") != ""){
 
 
 const CANVAS_WDT = canvas.width = 480;
-const CANVAS_HGT = canvas.height = 400;
+const CANVAS_HGT = canvas.height = 400;//These are the hieght and width of the canvas
 const SPRITE_WDT = 700;
 let framex = 0;
 let speed = 0;
@@ -55,7 +57,7 @@ if (answer == "yes") {
 }else
 {
     rock.src = "rock.png";  
-}
+}//Rock card color changes depending on the style chosen
 
 const paper = new Image();
 if (answer == "yes") {
@@ -63,7 +65,8 @@ if (answer == "yes") {
     }
     else{
         paper.src = "paper.png";
-    }
+    }//paper card color changes depending on the style chosen
+
     
 
 const scissors = new Image();
@@ -183,7 +186,7 @@ function animate() {
     contextR.drawImage(load, framex * SPRITE_WDT, 0, 700, 700, 55, 100, 200, 200);
 
     if (player2pick == "rock"){
-        context4.drawImage(cardback, 0, 0, 700, 700, 140, 100, 200, 200);
+        context4.drawImage(cardback, 0, 0, 700, 700, 140, 100, 200, 200);//Draws the back of the cards for the unselected cards
         context4.drawImage(cardback, 0, 0, 700, 700, 280, 100, 200, 200);
         console.log("Opponent Pick: " + player1Pick);
     }
@@ -230,7 +233,7 @@ function animate() {
     speed++;
 
     if (playScore == 1) {
-        context3.drawImage(starF, 0, 0, 700, 700, 40, 50, 200, 200);
+        context3.drawImage(starF, 0, 0, 700, 700, 40, 50, 200, 200);//The stars are drawn to reflect the points gained by the players
     }
 
 
@@ -325,40 +328,34 @@ function victorious() {
 
 
     if (victory == "Yes"&& cardisPicked2 == true ) {
-        console.log(localStorage);
-        document.getElementById('winLoseDraw').style.display = 'inline'
-        document.getElementById("winLoseDraw").innerHTML = "You Win!";
-        cardisPicked2 = false;
-        document.getElementById('nextRound').style.display = 'inline'
-        document.getElementById('canvas_stop').style.display = 'inline'
+        document.getElementById('winLoseDraw').style.display = 'inline'//Message appears after both players make a selection
+        document.getElementById("winLoseDraw").innerHTML = "You Win!";//The message if the player win's
+        cardisPicked2 = false;//card is no longer picked
+        document.getElementById('nextRound').style.display = 'inline'//button to go to the next round
+        document.getElementById('canvas_stop').style.display = 'inline'//A canvas to stop the player from continously pressing the cards
         playScore += 1;
-        console.log("Opponent Pick: " + player1Pick);
     }
 
     if (victory == "No" && cardisPicked2 == true) {
-        console.log(localStorage);
         document.getElementById('winLoseDraw').style.display = 'inline'
         document.getElementById("winLoseDraw").innerHTML = "You Lose!";
         cardisPicked2 = false;
         document.getElementById('nextRound').style.display = 'inline';
         document.getElementById('canvas_stop').style.display = 'inline';
         rivalScore += 1;
-        console.log("Opponent Pick: " + player1Pick);
     }
 
     if (victory == "Draw" && cardisPicked2 == true) {
-        console.log(localStorage);
         document.getElementById('winLoseDraw').style.display = 'inline'
         document.getElementById("winLoseDraw").innerHTML = "You Draw!";
         cardisPicked2 = false;
         document.getElementById('nextRound').style.display = 'inline';
         document.getElementById('canvas_stop').style.display = 'inline';
-        console.log("Opponent Pick: " + player1Pick);
     }
 
 
 
-    if (rivalScore == 3 && localStorage.getItem("rounds") == "three") {
+    if (rivalScore == 3 && localStorage.getItem("rounds") == "three") {//This function (and the others below) are to call the "game over" screen once all the rounds are completed
         document.getElementById("form").style.width = "100%";
         document.getElementById("winMessage").innerHTML = "You Lose!";
         localStorage.setItem("gameOver", "yes");
@@ -405,15 +402,15 @@ document.getElementById('canvas_stop').style.display = 'none';
 function nextRound() {
     cardIsPicked2 = "";
 
-    rounds++;
-    victory = "";
+    rounds++;//The round number increases to indicate next round
+    victory = "";//victory is reset as well as all other vairables for the player picks in the script and local storage
     player2pick = "";
     player1Pick = "";
     localStorage.setItem("player1pick", player2pick);
-    document.getElementById('nextRound').style.display = 'none';
-    document.getElementById('canvas_stop').style.display = 'none';
-    document.getElementById('winLoseDraw').style.display = 'none';
-        context4.clearRect(0, 0, CANVAS_WDT, CANVAS_HGT);
+    document.getElementById('nextRound').style.display = 'none';//The button dissapears
+    document.getElementById('canvas_stop').style.display = 'none';//canvas disappears
+    document.getElementById('winLoseDraw').style.display = 'none';//message disappears
+        context4.clearRect(0, 0, CANVAS_WDT, CANVAS_HGT);//canvases with the cards and stars are cleared
         context2.clearRect(0, 0, CANVAS_WDT, CANVAS_HGT);
         contextR2.clearRect(0, 0, CANVAS_WDT, CANVAS_HGT);
 
